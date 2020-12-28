@@ -1,0 +1,16 @@
+.home{
+    padding-top: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.home h2{
+    margin-bottom: 0;
+}
+
+.home p{
+    padding: 5px 10px;
+}
