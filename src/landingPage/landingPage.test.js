@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LandingPage from './landingPage';
+import LandingPage from './LandingPage';
 
 it('render without crashing', () => {
   const div = document.createElement('div');

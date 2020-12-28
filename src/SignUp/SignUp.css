@@ -1,0 +1,36 @@
+
+.sign-up-container{
+    display: flex;
+    flex-direction: column;
+    margin: 50px 20px;
+    background-color: #373a40;
+    color: #eeeeee;
+    padding-top: 0;
+}
+
+.sign-up-container h2 {
+    background-color: #686d76;
+    margin: 0;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.sign-up-container form {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 40px;
+}
+
+.sign-up-container input {
+    margin-bottom: 15px;
+}
+
+.sign-up-container form button {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 500;
+    border:none;
+    background-color: #686d76;
+    color: #eeeeee;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

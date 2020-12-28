@@ -1,7 +1,8 @@
 import './App.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LandingPage from './landingPage/landingPage';
+import LandingPage from './LandingPage/LandingPage';
+import SignUp from './SignUp/SignUp';
 import { Route, BrowserRouter as Router, Link } from 'react-router-dom';
 
 function App() {
@@ -20,8 +21,11 @@ function App() {
         </header>
 
         <main>
-          <Route path='/'>
+          <Route exact path='/'>
             <LandingPage />
+          </Route>
+          <Route path='/signup'>
+            <SignUp />
           </Route>
         </main>
       </Router>

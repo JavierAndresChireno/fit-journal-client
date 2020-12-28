@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './landingPage.css';
+import './LandingPage.css';
 
 export default function LandingPage() {
   return (
