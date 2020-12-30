@@ -2,7 +2,6 @@ import config from '../config';
 
 const UserService = {
   createUser(user) {
-    console.log(config.API_ENDPOINT);
     return fetch(`${config.API_ENDPOINT}users/signup`, {
       method: 'POST',
       headers: {

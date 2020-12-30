@@ -88,13 +88,11 @@ export default class SignUp extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { name, lastname, email, password } = this.state;
-    console.log(process.env.REACT_APP_API_ENDPOINT);
     const user = {
       email: email.value,
       password: password.value,
       full_name: `${name.value} ${lastname.value}`
     };
-    console.log(user);
     UserService.createUser(user)
       .then((res) => {
         TokenService.storeToken(res.authToken);
@@ -128,6 +126,7 @@ export default class SignUp extends React.Component {
   };
 
   render() {
+    const { name, lastname, email, password, repeatPassword } = this.state;
     const nameError = this.validateName();
     const lastnameError = this.validateLastName();
     const emailError = this.validateEmail();
@@ -148,6 +147,7 @@ export default class SignUp extends React.Component {
               this.changeField(e.target);
             }}
             required
+            value={name.value}
           />
           <ValidationError message={nameError} />
           <label htmlFor='lastname'>Lastname</label>
@@ -158,6 +158,7 @@ export default class SignUp extends React.Component {
             onChange={(e) => {
               this.changeField(e.target);
             }}
+            value={lastname.value}
             required
           />
           <ValidationError message={lastnameError} />
@@ -169,6 +170,7 @@ export default class SignUp extends React.Component {
             onChange={(e) => {
               this.changeField(e.target);
             }}
+            value={email.value}
             required
           />
           <ValidationError message={emailError} />
@@ -180,6 +182,7 @@ export default class SignUp extends React.Component {
             onChange={(e) => {
               this.changeField(e.target);
             }}
+            value={password.value}
             required
           />
           <ValidationError message={passwordError} />
@@ -192,6 +195,7 @@ export default class SignUp extends React.Component {
             onChange={(e) => {
               this.changeField(e.target);
             }}
+            value={repeatPassword.value}
           />
           <ValidationError message={repeatPasswordError} />
           <button
