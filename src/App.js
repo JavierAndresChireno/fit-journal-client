@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import LandingPage from './LandingPage/LandingPage';
 import SignUp from './SignUp/SignUp';
+import Login from './Login/Login';
 import { Route, BrowserRouter as Router, Link } from 'react-router-dom';
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
             <Link to='/meals'>Meals</Link>
             <Link to='/exercises'>Exercises</Link>
             <Link to='/signup'>Sign Up</Link>
-            <Link to='/signup'>Log in</Link>
+            <Link to='/login'>Log in</Link>
           </nav>
         </header>
 
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route path='/signup'>
             <SignUp />
+          </Route>
+          <Route path='/login'>
+            <Login />
           </Route>
         </main>
       </Router>

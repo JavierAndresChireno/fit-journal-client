@@ -1,9 +1,10 @@
 import React from 'react';
 import './SignUp.css';
+import { withRouter } from 'react-router-dom';
 import ValidationError from './../ValidationError/ValidationError';
 import UserService from '../Services/UserService';
 import TokenService from '../Services/TokenService';
-export default class SignUp extends React.Component {
+class SignUp extends React.Component {
   state = {
     name: {
       value: '',
@@ -119,6 +120,7 @@ export default class SignUp extends React.Component {
           },
           error: null
         });
+        this.props.history.push('/');
       })
       .catch((res) => {
         this.setState({ error: res.message });
@@ -215,3 +217,5 @@ export default class SignUp extends React.Component {
     );
   }
 }
+
+export default withRouter(SignUp);

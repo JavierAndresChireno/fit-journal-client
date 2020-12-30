@@ -1,4 +1,5 @@
 import config from '../config';
+import Login from '../Login/Login';
 
 const UserService = {
   createUser(user) {
@@ -16,6 +17,17 @@ const UserService = {
       }
       return res.json();
     });
+  },
+  logIn(user) {
+    return fetch(`${config.API_ENDPOINT}users/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    }).then((res) =>
+      !res.ok ? res.json().then((res) => Promise.reject(res.error)) : res.json()
+    );
   }
 };
 export default UserService;
