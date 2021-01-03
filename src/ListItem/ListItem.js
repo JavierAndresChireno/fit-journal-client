@@ -6,7 +6,7 @@ class ListItem extends Component {
   render() {
     return (
       <div>
-        <Link>
+        <Link to='/'>
           <h3> Apple pie</h3>
         </Link>
         <p>Apple pie with little calories and great macros.</p>
@@ -18,3 +18,5 @@ class ListItem extends Component {
 ListItem.propTypes = {
   object: PropTypes.object
 };
+
+export default withRouter(ListItem);
