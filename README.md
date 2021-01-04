@@ -54,7 +54,7 @@ Landing Page
 Register Page
 ![Register Page](/github-images/wireframes/sign-up-wireframe.png)
 Log in Page
-![Landing Page](/github-images/wireframes/sign-in-wireframe.png)
+![Log in Page](/github-images/wireframes/sign-in-wireframe.png)
 
 ### 6. Front-end Structure - React Components Map (to do later)
 
