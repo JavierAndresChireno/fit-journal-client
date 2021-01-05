@@ -54,7 +54,7 @@ This app is for two types of users: a visitor and a logged-in user
 - I want to be able to preview the title, url and description,
 - So I can decide what to edit.
 
-###### Exercise add page (Importance - Medium) (Est: 2h)
+###### Exercise add page (Importance - High) (Est: 2h)
 
 - As a logged-in user,
 - I want to introduce the title, the url, and the description of the exercise,
@@ -72,7 +72,7 @@ This app is for two types of users: a visitor and a logged-in user
 - I want to be able to preview the measurements of my arms, chest, waist, hips, thighs, calves, my weight, body fat percent, and the date of that entry.
 - Also, I would like to be able to delete or edit that entry.
 
-###### Body composition edit page (Importance - Medium) (Est: 2h)
+###### Body composition edit page (Importance - High) (Est: 2h)
 
 - As a logged-in user,
 - I want preview all my body composition details,
@@ -83,6 +83,30 @@ This app is for two types of users: a visitor and a logged-in user
 - As a logged-in user,
 - I want to add the measurement of my left and right arms, chest, waist, hips, left and right thighs and calves, current weight and body fat percent,
 - So I can save it.
+
+###### Meals List page (Importance - Medium) (Est: 2h)
+
+- As a logged-in user,
+- I want preview all my stored meals,
+- I want to search meals by query,
+- I would like to be able to select a meal to see details.
+
+###### Meals details page (Importance - Medium) (Est: 2h)
+
+- As a logged-in user,
+- I want to see the title, a link and description of my meal,
+- I want to be able to delete or edit the meal
+
+###### Meal edit page (Importance - Medium) (Est: 2h)
+
+- As a logged-in user,
+- I want to see the title, a link and description of the selected meal,
+- So I can be able to edit it.
+
+###### Meals add page (Importance - Medium) (Est: 2h)
+
+- As a logged-in user,
+- I want to be able to add the title, a link and description of my meal and save it.
 
 ### 3. Functionality (to do now)
 
