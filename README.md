@@ -1,4 +1,4 @@
-# FIT-JOURNAL (to do now)
+# FIT-JOURNAL
 
 An App to store physical proccess, favorites meals and exercises
 
@@ -34,13 +34,63 @@ This app is for two types of users: a visitor and a logged-in user
 - I want to be able to preview the content of the app,
 - So i can decide what section I want to navigate to.
 
+###### Exercise List Page (Importance - High) (Est: 2h)
+
+- As a logged-in user,
+- I want to be able to preview all the exercises that I have added,
+- find an exercise by a keyword,
+- So I can decide which exercise to open.
+- I would like to be able to add a new exercise.
+
+###### Exercise details page (Importance - High) (Est: 2h)
+
+- As a logged-in user,
+- I want to be able to see the title, the url and the description of the selected exercise.
+- Also, I want to be able to delete or edit the exercise.
+
+###### Exercise edit page (Importance - Medium) (Est: 2h)
+
+- As a logged-in user,
+- I want to be able to preview the title, url and description,
+- So I can decide what to edit.
+
+###### Exercise add page (Importance - Medium) (Est: 2h)
+
+- As a logged-in user,
+- I want to introduce the title, the url, and the description of the exercise,
+- So I can save it.
+
+###### Body progress Page (Importance - High) (Est: 2h)
+
+- As a logged-in user,
+- I want to be see all my body composition entries,
+- So I can decide which to open to see details.
+
+###### Body composition details page (Importance - High) (Est: 2h)
+
+- As a logged-in user,
+- I want to be able to preview the measurements of my arms, chest, waist, hips, thighs, calves, my weight, body fat percent, and the date of that entry.
+- Also, I would like to be able to delete or edit that entry.
+
+###### Body composition edit page (Importance - Medium) (Est: 2h)
+
+- As a logged-in user,
+- I want preview all my body composition details,
+- So I can decide what to edit.
+
+###### Body composition add page (Importance - Medium) (Est: 2h)
+
+- As a logged-in user,
+- I want to add the measurement of my left and right arms, chest, waist, hips, left and right thighs and calves, current weight and body fat percent,
+- So I can save it.
+
 ### 3. Functionality (to do now)
 
 The app's functionality includes:
 
 - (Example) Every User has the ability to create an account
 
-### 4. Technology (done)
+### 4. Technology
 
 - Front-End: HTML5, CSS3, JavaScript ES6, React
 - Back-End: Node.js, Express.js, Mocha, Chai, RESTful API Endpoints, Postgres
@@ -52,7 +102,7 @@ Landing Page
 :-------------------------:
 ![Landing Page](/github-images/wireframes/landing-page-wireframe.png)
 Register Page
-![Register Page](/github-images/wireframes/sign-up-wireframe.png)
+![Register Page](/github-images/wireframes/sing-up-wireframe.png)
 Log in Page
 ![Log in Page](/github-images/wireframes/sign-in-wireframe.png)
 
