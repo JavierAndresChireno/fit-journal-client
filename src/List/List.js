@@ -6,10 +6,17 @@ import './List.css';
 
 class List extends Component {
   render() {
+    const items = this.props.collection.map((sendObject) => {
+      return (
+        <li key={sendObject.id}>
+          <ListItem object={sendObject} />
+        </li>
+      );
+    });
     return (
       <div className='list'>
         <div className='title-add'>
-          <h2>Meals</h2>
+          <h2>{this.props.listName}</h2>
           <button type='button' className='add'>
             {' '}
             + Add
@@ -17,21 +24,12 @@ class List extends Component {
         </div>
         <form className='searchForm'>
           <label htmlFor='searchBy'>Find:</label>
-          <input
-            type='text'
-            name='searchBy'
-            id='searchBy'
-            placeholder='Apple pie..'
-          />
+          <input type='text' name='searchBy' id='searchBy' />
           <button type='button' name='searchButton'>
             Search
           </button>
         </form>
-        <ul>
-          <li>
-            <ListItem />
-          </li>
-        </ul>
+        <ul>{items}</ul>
       </div>
     );
   }

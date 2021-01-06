@@ -4,12 +4,17 @@ import PropTypes from 'prop-types';
 
 class ListItem extends Component {
   render() {
+    const { object } = this.props;
+    const title =
+      typeof object.title === 'string'
+        ? object.title.charAt(0).toUpperCase() + object.title.slice(1)
+        : object.title;
     return (
       <div>
         <Link to='/'>
-          <h3> Apple pie</h3>
+          <h3>{title}</h3>
         </Link>
-        <p>Apple pie with little calories and great macros.</p>
+        <p>{object.description}</p>
       </div>
     );
   }

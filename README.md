@@ -1,12 +1,12 @@
 # FIT-JOURNAL
 
-An App to store physical proccess, favorites meals and exercises
+Are you a fitness enthusiast ? The FIT-JOURNAL is the app for you. This app allows you to store your favorites meals from the recipes that you get on the internet, your favorites exercises and also allows you to track you body composition progress just as a Fitness journal but Virtual!
 
 ### 1. Working Prototype (to do later)
 
 (Example) You can access a working prototype of the React app here: https://your-app-client.herokuapp.com/ and Node app here: https://your-app-server.herokuapp.com/
 
-### 2. User Stories (to do now)
+### 2. User Stories
 
 This app is for two types of users: a visitor and a logged-in user
 
@@ -108,11 +108,16 @@ This app is for two types of users: a visitor and a logged-in user
 - As a logged-in user,
 - I want to be able to add the title, a link and description of my meal and save it.
 
-### 3. Functionality (to do now)
+### 3. Functionality
 
 The app's functionality includes:
 
-- (Example) Every User has the ability to create an account
+- Every User has the ability to create an account
+- A registered User has the ability to log in.
+- A logged in User can add Body composition entries, preview all his entries, see the details, delete body composition entries or udpdate them.
+- A logged in User can see his stored meals, add new meals, display details of his meals, and delete or edit meals.
+- A logged in User can preview all his exercises, add new exercises, see the details of the exercises, and edit or delete exercises.
+- A logged in User has the ability to log out.
 
 ### 4. Technology
 
@@ -120,7 +125,7 @@ The app's functionality includes:
 - Back-End: Node.js, Express.js, Mocha, Chai, RESTful API Endpoints, Postgres
 - Development Environment: Heroku, DBeaver
 
-### 5. Wireframes (to do now)
+### 5. Wireframes
 
 Landing Page
 :-------------------------:
@@ -129,6 +134,30 @@ Register Page
 ![Register Page](/github-images/wireframes/sing-up-wireframe.png)
 Log in Page
 ![Log in Page](/github-images/wireframes/sign-in-wireframe.png)
+Meals List Page
+![Meals List Page](/github-images/wireframes/meals-list-wireframe.png)
+Exercises List Page
+![Exercises List Page](/github-images/wireframes/exercises-list-wireframe.png)
+Body composition List Page
+![Body composition List Page](/github-images/wireframes/body-composition-list-wireframe.png)
+New meal Page
+![New meal Page](/github-images/wireframes/new-meal-wireframe.png)
+New exercise Page
+![New exercise Page](/github-images/wireframes/new-exercise-wireframe.png)
+New body composition Page
+![New body composition Page](/github-images/wireframes/new-body-composition-wireframe.png)
+Meal details Page
+![Meal details Page](/github-images/wireframes/meal-details-wireframe.png)
+Exercise details Page
+![Exercise details Page](/github-images/wireframes/exercise-details-wireframe.png)
+Meal details Page
+![Meal details Page](/github-images/wireframes/meal-details-wireframe.png)
+Edit body composition Page
+![Edit body composition Page](/github-images/wireframes/edit-body-composition-wireframe.png)
+Edit exercise Page
+![Edit exercise Page](/github-images/wireframes/edit-exercise-wireframe.png)
+Edit meal Page
+![Edit meal Page](/github-images/wireframes/edit-meal-wireframe.png)
 
 ### 6. Front-end Structure - React Components Map (to do later)
 
