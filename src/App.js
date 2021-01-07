@@ -1,8 +1,8 @@
 import './App.css';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import LandingPage from './LandingPage/LandingPage';
 import ExerciseList from './ExerciseList/ExerciseList';
+import Exercise from './Exercise/Exercise.js';
 import SignUp from './SignUp/SignUp';
 import Login from './Login/Login';
 import { Route, BrowserRouter as Router, Link } from 'react-router-dom';
@@ -35,6 +35,7 @@ function App() {
           <Route path='/exercises'>
             <ExerciseList />
           </Route>
+          <Route path='/exercise/:id' component={Exercise} />
         </main>
       </Router>
     </div>

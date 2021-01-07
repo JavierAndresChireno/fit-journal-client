@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import ListItem from './ListItem';
+import ListItem from './ExerciseItem';
 
 it('render ListItem without problem', () => {
   const div = document.createElement('div');

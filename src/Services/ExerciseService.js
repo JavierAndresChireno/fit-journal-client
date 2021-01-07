@@ -1,18 +1,27 @@
-import React from 'react';
 import CONFIG from '../config';
 import TokenService from '../Services/TokenService';
 const ExerciseService = {
   getAllExercises() {
-    const token = TokenService.getToken();
     return fetch(`${CONFIG.API_ENDPOINT}exercises/`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${TokenService.getToken()}`
       }
     })
       .then((res) => res.json())
       .then((exercises) => exercises);
+  },
+  getExercise(exerciseId) {
+    return fetch(`${CONFIG.API_ENDPOINT}exercises/${exerciseId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${TokenService.getToken()}`
+      }
+    })
+      .then((res) => res.json())
+      .then((exercise) => exercise);
   }
 };
 

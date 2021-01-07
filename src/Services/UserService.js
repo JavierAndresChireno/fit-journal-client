@@ -1,5 +1,4 @@
 import config from '../config';
-import Login from '../Login/Login';
 
 const UserService = {
   createUser(user) {

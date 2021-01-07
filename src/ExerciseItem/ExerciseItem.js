@@ -9,9 +9,10 @@ class ListItem extends Component {
       typeof object.title === 'string'
         ? object.title.charAt(0).toUpperCase() + object.title.slice(1)
         : object.title;
+    const linkTo = `exercise/${object.id}`;
     return (
       <div>
-        <Link to='/'>
+        <Link to={linkTo}>
           <h3>{title}</h3>
         </Link>
         <p>{object.description}</p>
