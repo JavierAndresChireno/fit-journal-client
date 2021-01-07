@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import ExerciseService from '../Services/ExerciseService';
 import FormatService from '../Services/FormatService';
+import './Exercise.css';
 class Exercise extends React.Component {
   state = {
     exercise: {},
@@ -30,6 +31,10 @@ class Exercise extends React.Component {
         <h3>{FormatService.firstLetterUpperCase(title)}</h3>
         <p>{FormatService.firstLetterUpperCase(description)}</p>
         {url ? <a href={url}> Visit a {title} reference</a> : ''}
+        <div className='exercise-buttons'>
+          <button>Delete </button>
+          <button>Edit</button>
+        </div>
       </div>
     );
   }
