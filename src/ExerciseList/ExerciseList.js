@@ -26,7 +26,13 @@ class ExerciseList extends Component {
       <div className='exercises'>
         <div className='title-add'>
           <h2>Excercises</h2>
-          <button type='button' className='add-exercise '>
+          <button
+            type='button'
+            className='add-exercise '
+            onClick={() => {
+              this.props.history.push('/new/exercise');
+            }}
+          >
             {' '}
             + Add
           </button>

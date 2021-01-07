@@ -6,6 +6,7 @@ import Exercise from './Exercise/Exercise.js';
 import SignUp from './SignUp/SignUp';
 import Login from './Login/Login';
 import { Route, BrowserRouter as Router, Link } from 'react-router-dom';
+import ExerciseForm from './ExerciseForm/ExerciseForm';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <ExerciseList />
           </Route>
           <Route path='/exercise/:id' component={Exercise} />
+          <Route path='/new/exercise' component={ExerciseForm} />
         </main>
       </Router>
     </div>
