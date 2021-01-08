@@ -1,18 +1,35 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import './ExerciseForm.css';
+import FormatService from '../Services/FormatService';
+import ExerciseService from '../Services/ExerciseService';
 
 class ExerciseForm extends React.Component {
   state = {
     title: '',
     url: '',
     description: '',
-    muscle_group: [],
-    body_part: [],
+    muscle_groups: [],
+    body_parts: [],
     body_part_id: '',
-    muscle_group_id: '',
+    muscle_groups_id: '',
+    exercises_muscles_groups: [],
     error: null
   };
+
+  componentDidMount() {
+    ExerciseService.getAllBodyParts()
+      .then((body_parts) => {
+        this.setState({
+          body_parts
+        });
+      })
+      .catch((error) => {
+        this.setState({
+          error
+        });
+      });
+  }
 
   handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -29,13 +46,71 @@ class ExerciseForm extends React.Component {
     }
     return true;
   };
+  handleBodyPartChange = (e) => {
+    const body_part_id = e.target.value;
+    this.setState({
+      body_part_id
+    });
+    if (body_part_id) {
+      // fill muscle group select by body part id
+
+      ExerciseService.getMuscleGroupByBodyPartId(body_part_id).then(
+        (muscle_groups) => {
+          this.setState({
+            muscle_groups
+          });
+        }
+      );
+    } else {
+      this.setState({
+        muscle_groups: [],
+        muscle_groups_id: ''
+      });
+    }
+  };
   handleSubmit = (e) => {
     e.preventDefault();
+    this.setState({
+      error: null
+    });
     if (!this.validateTitle()) {
       this.setState({
         error: 'Should introduce title of exercise'
       });
     }
+    if (!this.state.exercises_muscles_groups.length) {
+      this.setState({
+        error: 'Should add at least one muscle group'
+      });
+    }
+  };
+
+  handleAdd = () => {
+    const {
+      muscle_groups_id,
+      exercises_muscles_groups,
+      muscle_groups,
+      body_part_id
+    } = this.state;
+    const muscleId = parseInt(muscle_groups_id);
+
+    if (muscle_groups_id !== '') {
+      const muscle = muscle_groups.find((val) => val.id === muscleId);
+      // Validate if the muscle group id is not already in the array of exercises_muscles_group
+      if (!exercises_muscles_groups.includes(muscle) && muscle !== undefined) {
+        const newValues = exercises_muscles_groups;
+        newValues.push(muscle);
+        this.setState({
+          exercises_muscles_groups: newValues
+        });
+      }
+    }
+  };
+
+  handleClear = () => {
+    this.setState({
+      exercises_muscles_groups: []
+    });
   };
 
   render() {
@@ -43,10 +118,17 @@ class ExerciseForm extends React.Component {
       title,
       url,
       description,
-      muscle_group,
-      body_part,
-      error
+      muscle_groups,
+      body_parts,
+      error,
+      body_part_id,
+      muscle_groups_id,
+      exercises_muscles_groups,
+      stringOfMuscles
     } = this.state;
+    let bodyPartsOptions = ExerciseService.createOption(body_parts);
+    let muscleGroupsOptions = ExerciseService.createOption(muscle_groups);
+
     return (
       <div className='exercise-form-container'>
         <h2>Exercise</h2>
@@ -69,25 +151,46 @@ class ExerciseForm extends React.Component {
             required
           />
           <label htmlFor='body-part'>Select body part</label>
-          <select name='body-part' id='body-part' required>
-            <option value=''>--Body parts ---</option>
-            <option value=''>chest</option>
-            <option value=''>back</option>
-            <option value=''>leg</option>
+          <select
+            name='body-part'
+            id='body-part'
+            onChange={(e) => {
+              this.handleBodyPartChange(e);
+            }}
+            defaultValue={body_part_id}
+          >
+            <option value=''>--- Body parts ---</option>
+            {bodyPartsOptions}
           </select>
-          <label htmlFor='muscle-grouo'>Select muscle group</label>
-          <select name='body-part' id='body-part'>
-            <option value=''>--Muscle group ---</option>
-            <option value=''>Calves</option>
-            <option value=''>Hamstring</option>
-            <option value=''>Quadriceps</option>
+          <label htmlFor='muscle_groups_id'>Select muscle group</label>
+          <select
+            name='muscle_groups_id'
+            id='muscle_groups_id'
+            defaultValue={muscle_groups_id}
+            onChange={(e) => {
+              this.handleInputChange(e);
+            }}
+          >
+            <option value=''>--- Muscle group ---</option>
+            {muscleGroupsOptions}
           </select>
           <div>
-            <button type='button'>Add</button>
-            <button type='button'>Clear</button>
+            <button type='button' onClick={this.handleAdd}>
+              Add
+            </button>
+            <button type='button' onClick={this.handleClear}>
+              Clear
+            </button>
           </div>
           <div className='exercise-form-muscles'>
-            <span className='key-property'>Muscle group:</span> Calves,Hamstring
+            <span className='key-property'>Body parts:</span>{' '}
+            {ExerciseService.createBodyPartsString(
+              exercises_muscles_groups,
+              body_parts
+            )}{' '}
+            <br />
+            <span className='key-property'>Muscle groups:</span>{' '}
+            {ExerciseService.createMusclesString(exercises_muscles_groups)}
           </div>
 
           <label htmlFor='url'>URL</label>
