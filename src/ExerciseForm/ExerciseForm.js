@@ -18,6 +18,7 @@ class ExerciseForm extends React.Component {
   };
 
   componentDidMount() {
+    const { id } = this.props.match.params;
     ExerciseService.getAllBodyParts()
       .then((body_parts) => {
         this.setState({
@@ -29,6 +30,22 @@ class ExerciseForm extends React.Component {
           error
         });
       });
+
+    if (id) {
+      ExerciseService.getExercise(id)
+        .then((exercise) => {
+          this.setState({
+            title: exercise.title,
+            url: exercise.url || '',
+            description: exercise.description || ''
+          });
+        })
+        .catch((error) => {
+          this.setState({
+            error: error.error.message
+          });
+        });
+    }
   }
 
   handleInputChange = (e) => {
@@ -41,7 +58,7 @@ class ExerciseForm extends React.Component {
   validateTitle = () => {
     let { title } = this.state;
     title = title.trim();
-    if (!title.lenght) {
+    if (!title.length) {
       return false;
     }
     return true;
@@ -69,6 +86,7 @@ class ExerciseForm extends React.Component {
     }
   };
   handleSubmit = (e) => {
+    const { title, url, description, exercises_muscles_groups } = this.state;
     e.preventDefault();
     this.setState({
       error: null
@@ -77,11 +95,30 @@ class ExerciseForm extends React.Component {
       this.setState({
         error: 'Should introduce title of exercise'
       });
-    }
-    if (!this.state.exercises_muscles_groups.length) {
+    } else if (!exercises_muscles_groups.length) {
       this.setState({
         error: 'Should add at least one muscle group'
       });
+    } else {
+      const muscle_ids = [];
+      exercises_muscles_groups.forEach((muscle) => {
+        muscle_ids.push({ muscle_group_id: muscle.id });
+      });
+      const newExercise = {
+        title,
+        url,
+        description,
+        muscle_ids
+      };
+      console.log(muscle_ids);
+      ExerciseService.createExercise(newExercise)
+        .then(() => {
+          this.props.history.push('/exercises');
+        })
+        .catch((error) => {
+          console.log(error);
+          this.setState({ error: error.error.message });
+        });
     }
   };
 
@@ -93,11 +130,14 @@ class ExerciseForm extends React.Component {
       body_part_id
     } = this.state;
     const muscleId = parseInt(muscle_groups_id);
+    let findMuscle;
 
     if (muscle_groups_id !== '') {
       const muscle = muscle_groups.find((val) => val.id === muscleId);
       // Validate if the muscle group id is not already in the array of exercises_muscles_group
-      if (!exercises_muscles_groups.includes(muscle) && muscle !== undefined) {
+
+      findMuscle = exercises_muscles_groups.find((val) => val.id === muscleId);
+      if (!findMuscle && muscle !== undefined) {
         const newValues = exercises_muscles_groups;
         newValues.push(muscle);
         this.setState({
@@ -123,8 +163,7 @@ class ExerciseForm extends React.Component {
       error,
       body_part_id,
       muscle_groups_id,
-      exercises_muscles_groups,
-      stringOfMuscles
+      exercises_muscles_groups
     } = this.state;
     let bodyPartsOptions = ExerciseService.createOption(body_parts);
     let muscleGroupsOptions = ExerciseService.createOption(muscle_groups);

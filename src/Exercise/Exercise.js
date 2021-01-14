@@ -22,6 +22,22 @@ class Exercise extends React.Component {
         });
       });
   }
+  handleDelete() {
+    const exerciseId = this.props.match.params.id || '';
+    ExerciseService.deleteExercise(exerciseId)
+      .then(() => {
+        this.props.history.push('/exercises');
+      })
+      .catch((error) => {
+        this.setState({
+          error: error.error.message
+        });
+      });
+  }
+  handleEdit() {
+    const exerciseId = this.props.match.params.id;
+    this.props.history.push(`/edit/exercise/${exerciseId}`);
+  }
 
   render() {
     const { title, description, url } = this.state.exercise;
@@ -32,8 +48,20 @@ class Exercise extends React.Component {
         <p>{FormatService.firstLetterUpperCase(description)}</p>
         {url ? <a href={url}> Visit a {title} reference</a> : ''}
         <div className='exercise-buttons'>
-          <button>Delete </button>
-          <button>Edit</button>
+          <button
+            onClick={() => {
+              this.handleDelete();
+            }}
+          >
+            Delete{' '}
+          </button>
+          <button
+            onClick={() => {
+              this.handleEdit();
+            }}
+          >
+            Edit
+          </button>
         </div>
       </div>
     );

@@ -38,6 +38,7 @@ function App() {
           </Route>
           <Route path='/exercise/:id' component={Exercise} />
           <Route path='/new/exercise' component={ExerciseForm} />
+          <Route path='/edit/exercise/:id' component={ExerciseForm} />
         </main>
       </Router>
     </div>

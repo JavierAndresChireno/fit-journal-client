@@ -50,6 +50,22 @@ const ExerciseService = {
       .then((res) => res.json())
       .then((musclegroups) => musclegroups);
   },
+  createExercise(values) {
+    return fetch(`${CONFIG.API_ENDPOINT}exercises/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${TokenService.getToken()}`
+      },
+      body: JSON.stringify(values)
+    }).then((res) => {
+      if (!res.ok) {
+        return res.json().then((res) => {
+          throw res;
+        });
+      }
+    });
+  },
   createOption(array) {
     // return options for the select from array
     return array.map((val) => {
@@ -76,6 +92,21 @@ const ExerciseService = {
       }
     });
     return bodyParts.join(', ');
+  },
+  deleteExercise(id) {
+    return fetch(`${CONFIG.API_ENDPOINT}exercises/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${TokenService.getToken()}`
+      }
+    }).then((res) => {
+      if (!res.ok) {
+        return res.json().then((res) => {
+          throw res;
+        });
+      }
+    });
   }
 };
 
