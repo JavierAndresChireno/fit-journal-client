@@ -101,6 +101,7 @@ class ExerciseForm extends React.Component {
       });
     } else {
       const muscle_ids = [];
+      // store muscle_ids to only send the ids to the server
       exercises_muscles_groups.forEach((muscle) => {
         muscle_ids.push({ muscle_group_id: muscle.id });
       });
@@ -110,7 +111,6 @@ class ExerciseForm extends React.Component {
         description,
         muscle_ids
       };
-      console.log(muscle_ids);
       ExerciseService.createExercise(newExercise)
         .then(() => {
           this.props.history.push('/exercises');
@@ -129,14 +129,16 @@ class ExerciseForm extends React.Component {
       muscle_groups,
       body_part_id
     } = this.state;
+    // get select muscle store in the state
     const muscleId = parseInt(muscle_groups_id);
     let findMuscle;
-
+    // check that one muscle has been selected before adding to the array
     if (muscle_groups_id !== '') {
+      // get all the details of the muscle to store it on exercise_muscles_groups and use it later to create string
       const muscle = muscle_groups.find((val) => val.id === muscleId);
       // Validate if the muscle group id is not already in the array of exercises_muscles_group
-
       findMuscle = exercises_muscles_groups.find((val) => val.id === muscleId);
+      // If the muscle has details and it is not already in the array add it
       if (!findMuscle && muscle !== undefined) {
         const newValues = exercises_muscles_groups;
         newValues.push(muscle);
@@ -199,6 +201,7 @@ class ExerciseForm extends React.Component {
             defaultValue={body_part_id}
           >
             <option value=''>--- Body parts ---</option>
+            {/* Generate string of the body parts */}
             {bodyPartsOptions}
           </select>
           <label htmlFor='muscle_groups_id'>Select muscle group</label>
@@ -211,6 +214,7 @@ class ExerciseForm extends React.Component {
             }}
           >
             <option value=''>--- Muscle group ---</option>
+            {/* Generate string of the muscle groups */}
             {muscleGroupsOptions}
           </select>
           <div>
