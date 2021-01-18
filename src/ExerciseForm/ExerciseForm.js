@@ -13,7 +13,7 @@ class ExerciseForm extends React.Component {
     body_parts: [],
     body_part_id: '',
     muscle_groups_id: '',
-    exercises_muscles_groups: [],
+    exercises_muscle_group: [],
     error: null
   };
 
@@ -35,12 +35,14 @@ class ExerciseForm extends React.Component {
       ExerciseService.getExercise(id)
         .then((exercise) => {
           this.setState({
-            title: exercise.title,
+            title: exercise.title || '',
             url: exercise.url || '',
-            description: exercise.description || ''
+            description: exercise.description || '',
+            exercises_muscle_group: exercise.exercises_muscle_group || []
           });
         })
         .catch((error) => {
+          console.log(error);
           this.setState({
             error: error.error.message
           });
@@ -86,7 +88,8 @@ class ExerciseForm extends React.Component {
     }
   };
   handleSubmit = (e) => {
-    const { title, url, description, exercises_muscles_groups } = this.state;
+    const { title, url, description, exercises_muscle_group } = this.state;
+    const { id } = this.props.match.params;
     e.preventDefault();
     this.setState({
       error: null
@@ -95,14 +98,14 @@ class ExerciseForm extends React.Component {
       this.setState({
         error: 'Should introduce title of exercise'
       });
-    } else if (!exercises_muscles_groups.length) {
+    } else if (!exercises_muscle_group.length) {
       this.setState({
         error: 'Should add at least one muscle group'
       });
     } else {
       const muscle_ids = [];
       // store muscle_ids to only send the ids to the server
-      exercises_muscles_groups.forEach((muscle) => {
+      exercises_muscle_group.forEach((muscle) => {
         muscle_ids.push({ muscle_group_id: muscle.id });
       });
       const newExercise = {
@@ -111,21 +114,32 @@ class ExerciseForm extends React.Component {
         description,
         muscle_ids
       };
-      ExerciseService.createExercise(newExercise)
-        .then(() => {
-          this.props.history.push('/exercises');
-        })
-        .catch((error) => {
-          console.log(error);
-          this.setState({ error: error.error.message });
-        });
+      if (id) {
+        ExerciseService.updateExercise(id, newExercise)
+          .then(() => {
+            this.props.history.push('/exercises');
+          })
+          .catch((error) => {
+            console.log(error);
+            this.setState({ error: error.error.message });
+          });
+      } else {
+        ExerciseService.createExercise(newExercise)
+          .then(() => {
+            this.props.history.push('/exercises');
+          })
+          .catch((error) => {
+            console.log(error);
+            this.setState({ error: error.error.message });
+          });
+      }
     }
   };
 
   handleAdd = () => {
     const {
       muscle_groups_id,
-      exercises_muscles_groups,
+      exercises_muscle_group,
       muscle_groups,
       body_part_id
     } = this.state;
@@ -137,13 +151,13 @@ class ExerciseForm extends React.Component {
       // get all the details of the muscle to store it on exercise_muscles_groups and use it later to create string
       const muscle = muscle_groups.find((val) => val.id === muscleId);
       // Validate if the muscle group id is not already in the array of exercises_muscles_group
-      findMuscle = exercises_muscles_groups.find((val) => val.id === muscleId);
+      findMuscle = exercises_muscle_group.find((val) => val.id === muscleId);
       // If the muscle has details and it is not already in the array add it
       if (!findMuscle && muscle !== undefined) {
-        const newValues = exercises_muscles_groups;
+        const newValues = exercises_muscle_group;
         newValues.push(muscle);
         this.setState({
-          exercises_muscles_groups: newValues
+          exercises_muscle_group: newValues
         });
       }
     }
@@ -151,7 +165,7 @@ class ExerciseForm extends React.Component {
 
   handleClear = () => {
     this.setState({
-      exercises_muscles_groups: []
+      exercises_muscle_group: []
     });
   };
 
@@ -165,7 +179,7 @@ class ExerciseForm extends React.Component {
       error,
       body_part_id,
       muscle_groups_id,
-      exercises_muscles_groups
+      exercises_muscle_group
     } = this.state;
     let bodyPartsOptions = ExerciseService.createOption(body_parts);
     let muscleGroupsOptions = ExerciseService.createOption(muscle_groups);
@@ -228,12 +242,12 @@ class ExerciseForm extends React.Component {
           <div className='exercise-form-muscles'>
             <span className='key-property'>Body parts:</span>{' '}
             {ExerciseService.createBodyPartsString(
-              exercises_muscles_groups,
+              exercises_muscle_group,
               body_parts
             )}{' '}
             <br />
             <span className='key-property'>Muscle groups:</span>{' '}
-            {ExerciseService.createMusclesString(exercises_muscles_groups)}
+            {ExerciseService.createMusclesString(exercises_muscle_group)}
           </div>
 
           <label htmlFor='url'>URL</label>
