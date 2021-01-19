@@ -7,6 +7,7 @@ import SignUp from './SignUp/SignUp';
 import Login from './Login/Login';
 import { Route, BrowserRouter as Router, Link } from 'react-router-dom';
 import ExerciseForm from './ExerciseForm/ExerciseForm';
+import MealList from './MealsList/MealList';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path='/exercise/:id' component={Exercise} />
           <Route path='/new/exercise' component={ExerciseForm} />
           <Route path='/edit/exercise/:id' component={ExerciseForm} />
+          <Route path='/meals' component={MealList} />
         </main>
       </Router>
     </div>

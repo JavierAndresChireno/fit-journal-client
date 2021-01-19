@@ -1,0 +1,35 @@
+.meals {
+    padding: 20px;
+}
+
+.meals h2{
+    margin: 0 0 10px 0;;
+}
+
+.title-add {
+    display: flex;
+
+}
+
+.add-meal {
+    margin: 5px 0 10px 10px;
+    font-size: 14px;
+    height: 30px;
+    background-color: #373a40;
+    color: #eeeeee;
+    font-family: 'Titillium Web', sans-serif;
+    border: none;
+    font-weight: 700;
+}
+
+.meals ul li {
+    list-style:  none;
+}
+
+.meals ul li h3 {
+    margin-bottom: 0;
+}
+
+.meals ul li p {
+    margin-top: 0;
+}
