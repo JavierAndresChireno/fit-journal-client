@@ -24,6 +24,17 @@ const MealService = {
     })
       .then((res) => res.json())
       .then((meals) => meals);
+  },
+  getMealById(id) {
+    return fetch(`${CONFIG.API_ENDPOINT}meals/${id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${TokenService.getToken()}`
+      }
+    })
+      .then((res) => res.json())
+      .then((meal) => meal);
   }
 };
 

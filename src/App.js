@@ -8,6 +8,8 @@ import Login from './Login/Login';
 import { Route, BrowserRouter as Router, Link } from 'react-router-dom';
 import ExerciseForm from './ExerciseForm/ExerciseForm';
 import MealList from './MealsList/MealList';
+import Meal from './Meal/Meal';
+import MealForm from './MealForm/MealForm';
 
 function App() {
   return (
@@ -41,6 +43,9 @@ function App() {
           <Route path='/new/exercise' component={ExerciseForm} />
           <Route path='/edit/exercise/:id' component={ExerciseForm} />
           <Route path='/meals' component={MealList} />
+          <Route path='/meal/:id' exact component={Meal} />
+          <Route path='/new/meal' exact component={MealForm} />
+          <Route path='/edit/meal/:id' exact component={MealForm} />
         </main>
       </Router>
     </div>

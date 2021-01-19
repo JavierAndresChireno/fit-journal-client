@@ -1,0 +1,25 @@
+.meal-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.meal-container button {
+    margin: 5px 0 10px 10px;
+    font-size: 14px;
+    height: 30px;
+    background-color: #373a40;
+    color: #eeeeee;
+    font-family: 'Titillium Web', sans-serif;
+    border: none;
+    border-radius: 10%;
+    font-weight: 700;
+}
+
+.meal-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center
+}

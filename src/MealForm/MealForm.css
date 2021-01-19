@@ -1,0 +1,44 @@
+.meal-form-container{
+    display: flex;
+    flex-direction: column;
+    margin: 50px 20px;
+    background-color: #373a40;
+    color: #eeeeee;
+    padding-top: 0;
+    padding-bottom: 50px;
+    padding: 0 15px 50px
+}
+.meal-form-container h2 {
+    background-color: #686d76;
+    margin: 0;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.meal-form-container form {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 40px;
+}
+
+.meal-form-container input {
+    margin-bottom: 15px;
+
+}
+
+.meal-form-container form button {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 500;
+    border:none;
+    background-color: #686d76;
+    color: #eeeeee;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
+
+
+
+.meal-form-error {
+    color: red
+}
