@@ -6,6 +6,8 @@ import './Exercise.css';
 class Exercise extends React.Component {
   state = {
     exercise: {},
+    exercises_muscle_group: [],
+    body_parts: [],
     error: null
   };
   componentDidMount() {
@@ -13,7 +15,19 @@ class Exercise extends React.Component {
     ExerciseService.getExercise(exerciseId)
       .then((exercise) => {
         this.setState({
-          exercise
+          exercise,
+          exercises_muscle_group: exercise.exercises_muscle_group || []
+        });
+      })
+      .catch((error) => {
+        this.setState({
+          error
+        });
+      });
+    ExerciseService.getAllBodyParts()
+      .then((body_parts) => {
+        this.setState({
+          body_parts
         });
       })
       .catch((error) => {
@@ -40,11 +54,26 @@ class Exercise extends React.Component {
   }
 
   render() {
-    const { title, description, url } = this.state.exercise;
+    const {
+      title,
+      description,
+      url,
+      exercises_muscle_group
+    } = this.state.exercise;
     return (
       <div className='exercise-container'>
         <h2>Exercise</h2>
         <h3>{FormatService.firstLetterUpperCase(title)}</h3>
+        <div className='exercise-muscles'>
+          <span className='key-property'>Body parts:</span>{' '}
+          {ExerciseService.createBodyPartsString(
+            exercises_muscle_group,
+            this.state.body_parts
+          )}{' '}
+          <br />
+          <span className='key-property'>Muscle groups:</span>{' '}
+          {ExerciseService.createMusclesString(exercises_muscle_group)}
+        </div>
         <p>{FormatService.firstLetterUpperCase(description)}</p>
         {url ? <a href={url}> Visit a {title} reference</a> : ''}
         <div className='exercise-buttons'>

@@ -93,21 +93,31 @@ const ExerciseService = {
     });
   },
   createMusclesString(exercises_muscles) {
-    const muscles = exercises_muscles.map((val) => {
-      return FormatService.firstLetterUpperCase(val.name || '');
-    });
-    return muscles.join(', ');
+    if (exercises_muscles) {
+      const muscles = exercises_muscles.map((val) => {
+        return FormatService.firstLetterUpperCase(val.name || '');
+      });
+      return muscles.join(', ');
+    }
   },
   createBodyPartsString(muscles, bodyPartsArray) {
     const bodyParts = [];
-    muscles.forEach((val) => {
-      const body = bodyPartsArray.find((body) => body.id === val.body_part_id);
-      const bodyName = FormatService.firstLetterUpperCase(body.name);
-      if (!bodyParts.includes(bodyName)) {
-        bodyParts.push(bodyName);
-      }
-    });
-    return bodyParts.join(', ');
+    if (muscles && bodyPartsArray) {
+      muscles.forEach((val) => {
+        const body = bodyPartsArray.find(
+          (body) => body.id === val.body_part_id
+        );
+
+        if (body) {
+          const bodyName = FormatService.firstLetterUpperCase(body.name);
+
+          if (!bodyParts.includes(bodyName)) {
+            bodyParts.push(bodyName);
+          }
+        }
+      });
+      return bodyParts.join(', ');
+    }
   },
   deleteExercise(id) {
     return fetch(`${CONFIG.API_ENDPOINT}exercises/${id}`, {
@@ -123,6 +133,17 @@ const ExerciseService = {
         });
       }
     });
+  },
+  filterExercise(query) {
+    return fetch(`${CONFIG.API_ENDPOINT}exercises/find/${query}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${TokenService.getToken()}`
+      }
+    })
+      .then((res) => res.json())
+      .then((exercises) => exercises);
   }
 };
 

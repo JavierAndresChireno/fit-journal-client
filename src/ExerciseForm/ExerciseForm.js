@@ -181,6 +181,7 @@ class ExerciseForm extends React.Component {
       muscle_groups_id,
       exercises_muscle_group
     } = this.state;
+    const { id } = this.props.match.params;
     let bodyPartsOptions = ExerciseService.createOption(body_parts);
     let muscleGroupsOptions = ExerciseService.createOption(muscle_groups);
 
@@ -272,7 +273,11 @@ class ExerciseForm extends React.Component {
             }}
           ></textarea>
 
-          <button>Create</button>
+          <button>{id ? 'Update' : 'Create'}</button>
+          <button type='button' onClick={this.props.history.goBack}>
+            {' '}
+            Cancel
+          </button>
         </form>
       </div>
     );

@@ -5,7 +5,8 @@ import ExerciseItem from '../ExerciseItem/ExerciseItem';
 import './ExerciseList.css';
 class ExerciseList extends Component {
   state = {
-    exercises: []
+    exercises: [],
+    searchBy: ''
   };
   componentDidMount() {
     ExerciseService.getAllExercises().then((exercises) => {
@@ -13,6 +14,28 @@ class ExerciseList extends Component {
         exercises
       });
     });
+  }
+  handleFindChange(e) {
+    this.setState({
+      searchBy: e.target.value.trim()
+    });
+  }
+  handleSubmit(e) {
+    e.preventDefault();
+    const { searchBy } = this.state;
+    if (searchBy === '') {
+      ExerciseService.getAllExercises().then((exercises) => {
+        this.setState({
+          exercises
+        });
+      });
+    } else {
+      ExerciseService.filterExercise(searchBy).then((exercises) => {
+        this.setState({
+          exercises
+        });
+      });
+    }
   }
   render() {
     const items = this.state.exercises.map((sendObject) => {
@@ -37,10 +60,23 @@ class ExerciseList extends Component {
             + Add
           </button>
         </div>
-        <form className='searchForm'>
+        <form
+          className='searchForm'
+          onSubmit={(e) => {
+            this.handleSubmit(e);
+          }}
+        >
           <label htmlFor='searchBy'>Find:</label>
-          <input type='text' name='searchBy' id='searchBy' />
-          <button type='button' name='searchButton'>
+          <input
+            type='text'
+            name='searchBy'
+            id='searchBy'
+            value={this.state.searchBy}
+            onChange={(e) => {
+              this.handleFindChange(e);
+            }}
+          />
+          <button type='submit' name='searchButton'>
             Search
           </button>
         </form>
