@@ -73,7 +73,7 @@ class MealForm extends React.Component {
           })
           .catch((error) => {
             console.log(error);
-            this.setState({ error: error.error.message });
+            this.setState({ error: error.error });
           });
       } else {
         MealService.createMeal(newMeal)

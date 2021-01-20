@@ -11,7 +11,14 @@ const ExerciseService = {
         Authorization: `Bearer ${TokenService.getToken()}`
       }
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((res) => {
+            throw res;
+          });
+        }
+        return res.json();
+      })
       .then((exercises) => exercises);
   },
   getExercise(exerciseId) {
@@ -22,7 +29,14 @@ const ExerciseService = {
         Authorization: `Bearer ${TokenService.getToken()}`
       }
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((res) => {
+            throw res;
+          });
+        }
+        return res.json();
+      })
       .then((exercise) => exercise);
   },
   getAllBodyParts() {
@@ -142,7 +156,14 @@ const ExerciseService = {
         Authorization: `Bearer ${TokenService.getToken()}`
       }
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((res) => {
+            throw res;
+          });
+        }
+        return res.json();
+      })
       .then((exercises) => exercises);
   }
 };
