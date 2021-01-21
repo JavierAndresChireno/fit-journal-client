@@ -6,14 +6,16 @@ import './BodyCompositionItem.css';
 
 class BodyCompositionItem extends Component {
   render() {
-    const { date_created, weight, body_fat } = this.props.object;
+    const { id, date_created, weight, body_fat } = this.props.object;
     let d = new Date(date_created);
     const newDate = d ? format(d, 'MMMM do uuuu') : '';
+    const url = `/body-composition/${id}`;
     return (
       <>
-        <a>
+        <Link to={url}>
           <h3>{newDate}</h3>
-        </a>
+        </Link>
+
         <div className='body-composition-card'>
           <p>
             <span className='key-name'>Weight:</span> {weight} lb.

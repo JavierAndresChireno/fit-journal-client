@@ -11,6 +11,7 @@ import MealList from './MealsList/MealList';
 import Meal from './Meal/Meal';
 import MealForm from './MealForm/MealForm';
 import BodyCompositionList from './BodyCompositionList/BodyCompositionList';
+import BodyComposition from './BodyComposition/BodyComposition';
 
 function App() {
   return (
@@ -52,6 +53,11 @@ function App() {
             path='/body-composition'
             exact
             component={BodyCompositionList}
+          />
+          <Route
+            path='/body-composition/:id'
+            exact
+            component={BodyComposition}
           />
         </main>
       </Router>
