@@ -33,11 +33,15 @@ class BodyComposition extends Component {
       left_calf,
       right_calf,
       weight,
-      body_fat
+      body_fat,
+      error
     } = this.state.bodyComposition;
     return (
       <div className='body-composition-container'>
         <h2>Body composition</h2>
+        <div className='body-composition-form-error'>
+          {error && <p>{error}</p>}
+        </div>
         <div className='body-composition-details'>
           <h3>Arms</h3>
           <span className='key-name'>Left: </span> {left_arm} inches

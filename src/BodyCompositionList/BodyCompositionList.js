@@ -25,6 +25,7 @@ class BodyCompositionList extends Component {
       });
   }
   render() {
+    const { error } = this.state;
     const items = this.state.bodyCompositions.map((val) => {
       return (
         <li key={val.id}>
@@ -36,7 +37,13 @@ class BodyCompositionList extends Component {
       <div className='body-composition'>
         <div className='title-add'>
           <h2>Body composition</h2>
-          <button type='button' className='add-body-composition'>
+          <button
+            type='button'
+            className='add-body-composition'
+            onClick={() => {
+              this.props.history.push('/new/body-composition');
+            }}
+          >
             {' '}
             + Add
           </button>
@@ -64,6 +71,9 @@ class BodyCompositionList extends Component {
             Search
           </button>
         </form>
+        <div className='body-composition-form-error'>
+          {error && <p>{error}</p>}
+        </div>
         <ul>{items}</ul>
       </div>
     );

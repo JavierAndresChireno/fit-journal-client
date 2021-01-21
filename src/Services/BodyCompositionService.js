@@ -37,6 +37,25 @@ const BodyCompositionService = {
         return res.json();
       })
       .then((bodyComposition) => bodyComposition);
+  },
+  createBodyComposition(values) {
+    return fetch(`${CONFIG.API_ENDPOINT}body-compositions/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${TokenService.getToken()}`
+      },
+      body: JSON.stringify(values)
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((res) => {
+            throw res;
+          });
+        }
+        return res.json();
+      })
+      .then((bodyComposition) => bodyComposition);
   }
 };
 
