@@ -1,7 +1,5 @@
-import React from 'react';
 import CONFIG from '../config';
 import TokenService from '../Services/TokenService';
-import FormatService from './FormatService';
 const MealService = {
   getAllMeals() {
     return fetch(`${CONFIG.API_ENDPOINT}meals/`, {

@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import './ExerciseForm.css';
-import FormatService from '../Services/FormatService';
 import ExerciseService from '../Services/ExerciseService';
 
 class ExerciseForm extends React.Component {
@@ -140,8 +139,7 @@ class ExerciseForm extends React.Component {
     const {
       muscle_groups_id,
       exercises_muscle_group,
-      muscle_groups,
-      body_part_id
+      muscle_groups
     } = this.state;
     // get select muscle store in the state
     const muscleId = parseInt(muscle_groups_id);
