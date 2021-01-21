@@ -1,0 +1,35 @@
+.body-composition {
+    padding: 20px;
+}
+
+.body-composition h2{
+    margin: 0 0 10px 0;;
+}
+
+.title-add {
+    display: flex;
+
+}
+
+.add-body-composition {
+    margin: 5px 0 10px 10px;
+    font-size: 14px;
+    height: 30px;
+    background-color: #373a40;
+    color: #eeeeee;
+    font-family: 'Titillium Web', sans-serif;
+    border: none;
+    font-weight: 700;
+}
+
+.body-composition ul li {
+    list-style:  none;
+}
+
+.body-composition ul li h3 {
+    margin-bottom: 0;
+}
+
+.body-composition ul li p {
+    margin-top: 0;
+}

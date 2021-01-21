@@ -1,0 +1,12 @@
+.key-name{
+    font-weight: 600;
+}
+
+.body-composition-card{
+    display: flex;
+    
+}
+
+.body-composition-card p {
+    margin-right: 30px;
+}

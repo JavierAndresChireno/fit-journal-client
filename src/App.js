@@ -10,6 +10,7 @@ import ExerciseForm from './ExerciseForm/ExerciseForm';
 import MealList from './MealsList/MealList';
 import Meal from './Meal/Meal';
 import MealForm from './MealForm/MealForm';
+import BodyCompositionList from './BodyCompositionList/BodyCompositionList';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Link to='/'>Home</Link>
             <Link to='/meals'>Meals</Link>
             <Link to='/exercises'>Exercises</Link>
+            <Link to='/body-composition'>Body composition</Link>
             <Link to='/signup'>Sign Up</Link>
             <Link to='/login'>Log in</Link>
           </nav>
@@ -46,6 +48,11 @@ function App() {
           <Route path='/meal/:id' exact component={Meal} />
           <Route path='/new/meal' exact component={MealForm} />
           <Route path='/edit/meal/:id' exact component={MealForm} />
+          <Route
+            path='/body-composition'
+            exact
+            component={BodyCompositionList}
+          />
         </main>
       </Router>
     </div>
