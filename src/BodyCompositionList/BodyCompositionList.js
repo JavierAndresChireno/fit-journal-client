@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { format } from 'date-fns';
 import BodyCompositionItem from '../BodyCompositionItem/BodyCompositionItem';
 import BodyCompositionService from '../Services/BodyCompositionService';
 import './BodyCompositionList.css';
@@ -7,9 +8,36 @@ import './BodyCompositionList.css';
 class BodyCompositionList extends Component {
   state = {
     bodyCompositions: [],
+    fromDate: format(new Date(), 'yyyy-MM-dd'),
+    toDate: format(new Date(), 'yyyy-MM-dd'),
     error: null
   };
   componentDidMount() {
+    this.getAllBodyComposition();
+  }
+  handleInputChange = (e) => {
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value
+    });
+  };
+  handleSubmit(e) {
+    const { fromDate, toDate } = this.state;
+    e.preventDefault();
+
+    BodyCompositionService.filterBodyComposition(fromDate, toDate)
+      .then((bodyCompositions) => {
+        this.setState({
+          bodyCompositions
+        });
+      })
+      .catch((error) => {
+        this.setState({
+          error: error.error || error
+        });
+      });
+  }
+  getAllBodyComposition() {
     BodyCompositionService.getAllBodyComposition()
       .then((bodyCompositions) => {
         if (bodyCompositions) {
@@ -24,8 +52,12 @@ class BodyCompositionList extends Component {
         });
       });
   }
+
+  handleAll = () => {
+    this.getAllBodyComposition();
+  };
   render() {
-    const { error } = this.state;
+    const { error, fromDate, toDate } = this.state;
     const items = this.state.bodyCompositions.map((val) => {
       return (
         <li key={val.id}>
@@ -48,27 +80,39 @@ class BodyCompositionList extends Component {
             + Add
           </button>
         </div>
-        <form className='searchForm'>
-          <label htmlFor='date-start'>From:</label>
+        <form
+          className='searchForm'
+          onSubmit={(e) => {
+            this.handleSubmit(e);
+          }}
+        >
+          <label htmlFor='fromDate'>From:</label>
           <input
             type='date'
-            id='start'
-            name='date-start'
-            value='2018-07-22'
-            min='2018-01-01'
-            max='2018-12-31'
+            id='fromDate'
+            name='fromDate'
+            value={fromDate}
+            max={new Date()}
+            onChange={(e) => {
+              this.handleInputChange(e);
+            }}
           />
-          <label htmlFor='date-end'>To:</label>
+          <label htmlFor='toDate'>To:</label>
           <input
             type='date'
-            id='start'
-            name='date-end'
-            value='2018-07-22'
-            min='2018-01-01'
-            max='2018-12-31'
+            id='toDate'
+            name='toDate'
+            value={toDate}
+            max={new Date()}
+            onChange={(e) => {
+              this.handleInputChange(e);
+            }}
           />
-          <button type='button' name='searchButton'>
+          <button type='submit' name='searchButton'>
             Search
+          </button>
+          <button type='button' name='allButton' onClick={this.handleAll}>
+            All
           </button>
         </form>
         <div className='body-composition-form-error'>
