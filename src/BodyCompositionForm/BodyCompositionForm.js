@@ -23,6 +23,40 @@ class BodyCompositionForm extends Component {
       [name]: value
     });
   };
+  componentDidMount = () => {
+    const { id } = this.props.match.params;
+
+    if (id) {
+      BodyCompositionService.getBodyCompositionById(id).then((val) => {
+        const {
+          left_arm,
+          right_arm,
+          chest,
+          waist,
+          hips,
+          left_thigh,
+          right_thigh,
+          left_calf,
+          right_calf,
+          weight,
+          body_fat
+        } = val;
+        this.setState({
+          leftArm: left_arm,
+          rightArm: right_arm,
+          leftThigh: left_thigh,
+          rightThigh: right_thigh,
+          leftCalf: left_calf,
+          rightCalf: right_calf,
+          bodyFat: body_fat,
+          chest,
+          waist,
+          hips,
+          weight
+        });
+      });
+    }
+  };
   validateWeight = () => {
     if (this.state.weight === '') {
       return false;
@@ -65,9 +99,9 @@ class BodyCompositionForm extends Component {
         hips
       };
       if (id) {
-        BodyCompositionService.updateMeal(id, newBodyComposisiton)
+        BodyCompositionService.updateBodyComposition(id, newBodyComposisiton)
           .then(() => {
-            this.props.history.push('/meals');
+            this.props.history.push('/body-composition');
           })
           .catch((error) => {
             console.log(error);
@@ -79,14 +113,14 @@ class BodyCompositionForm extends Component {
             this.props.history.push('/body-composition');
           })
           .catch((error) => {
-            console.log(error);
-            this.setState({ error: error.error.message });
+            this.setState({ error: error.error.message || error });
           });
       }
     }
   };
   render() {
     const { error } = this.state;
+    const { id } = this.props.match.params;
     return (
       <div className='body-composition-container'>
         <h2>Body Composition</h2>
@@ -102,6 +136,8 @@ class BodyCompositionForm extends Component {
             <h3>Arms</h3>
             <label htmlFor='leftArm'>Left (inches):</label>
             <input
+              step='0.01'
+              defaultValue={this.state.leftArm}
               min='0'
               type='number'
               id='leftArm'
@@ -112,6 +148,8 @@ class BodyCompositionForm extends Component {
             />
             <label htmlFor='leftArm'>Right (inches):</label>
             <input
+              step='0.01'
+              defaultValue={this.state.rightArm}
               min='0'
               type='number'
               id='rightArm'
@@ -125,6 +163,8 @@ class BodyCompositionForm extends Component {
             <h3>Chest</h3>
             <label htmlFor='chest'>Chest (inches):</label>
             <input
+              step='0.01'
+              defaultValue={this.state.chest}
               type='number'
               id='chest'
               name='chest'
@@ -137,6 +177,8 @@ class BodyCompositionForm extends Component {
             <h3>Waist</h3>
             <label htmlFor='waist'>Waist (inches):</label>
             <input
+              step='0.01'
+              defaultValue={this.state.waist}
               type='number'
               id='waist'
               name='waist'
@@ -149,6 +191,8 @@ class BodyCompositionForm extends Component {
             <h3>Hips</h3>
             <label htmlFor='hips'>Hips (inches):</label>
             <input
+              step='0.01'
+              defaultValue={this.state.hips}
               type='number'
               id='hips'
               name='hips'
@@ -161,6 +205,8 @@ class BodyCompositionForm extends Component {
             <h3>Thighs</h3>
             <label htmlFor='leftThigh'>Left (inches):</label>
             <input
+              step='0.01'
+              defaultValue={this.state.leftThigh}
               type='number'
               id='leftThigh'
               name='leftThigh'
@@ -168,8 +214,10 @@ class BodyCompositionForm extends Component {
                 this.handleInputChange(e);
               }}
             />
-            <label htmlFor='left-thigh'>Right (inches):</label>
+            <label htmlFor='rightThigh'>Right (inches):</label>
             <input
+              step='0.01'
+              defaultValue={this.state.rightThigh}
               type='number'
               id='rightThigh'
               name='rightThigh'
@@ -182,6 +230,8 @@ class BodyCompositionForm extends Component {
             <h3>Calves</h3>
             <label htmlFor='leftCalf'>Left (inches):</label>
             <input
+              step='0.01'
+              defaultValue={this.state.leftCalf}
               min='0'
               type='number'
               id='leftCalf'
@@ -192,6 +242,8 @@ class BodyCompositionForm extends Component {
             />
             <label htmlFor='leftCalf'>Right (inches):</label>
             <input
+              step='0.01'
+              defaultValue={this.state.rightCalf}
               min='0'
               type='number'
               id='rightCalf'
@@ -205,6 +257,8 @@ class BodyCompositionForm extends Component {
             <h3>Weight</h3>
             <label htmlFor='weight'>Weight (pounds):</label>
             <input
+              step='0.01'
+              defaultValue={this.state.weight}
               min='0'
               type='number'
               id='weight'
@@ -218,6 +272,8 @@ class BodyCompositionForm extends Component {
             <h3>Body fat</h3>
             <label htmlFor='bodyFat'>Body fat (percent):</label>
             <input
+              step='0.01'
+              defaultValue={this.state.bodyFat}
               min='0'
               type='number'
               id='bodyFat'
@@ -227,7 +283,7 @@ class BodyCompositionForm extends Component {
               }}
             />
           </div>
-          <button>Create</button>
+          <button>{id ? 'Update' : 'Create'}</button>
           <button
             type='button'
             onClick={() => {

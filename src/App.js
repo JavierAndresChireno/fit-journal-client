@@ -65,6 +65,11 @@ function App() {
             exact
             component={BodyCompositionForm}
           />
+          <Route
+            path='/edit/body-composition/:id'
+            exact
+            component={BodyCompositionForm}
+          />
         </main>
       </Router>
     </div>

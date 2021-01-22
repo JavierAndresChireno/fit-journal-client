@@ -21,6 +21,23 @@ class BodyComposition extends Component {
         });
       });
   }
+  handleDelete() {
+    const { id } = this.props.match.params;
+
+    BodyCompositionService.deleteBodyCompositionById(id)
+      .then(() => {
+        this.props.history.push('/body-composition');
+      })
+      .catch((error) => {
+        this.setState({
+          error: error.error.message
+        });
+      });
+  }
+  handleEdit() {
+    const { id } = this.props.match.params;
+    this.props.history.push(`/edit/body-composition/${id}`);
+  }
   render() {
     const {
       left_arm,
