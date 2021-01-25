@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import './ExerciseForm.css';
 import ExerciseService from '../Services/ExerciseService';
+import TokenService from '../Services/TokenService';
 
 class ExerciseForm extends React.Component {
   state = {
@@ -17,6 +18,7 @@ class ExerciseForm extends React.Component {
   };
 
   componentDidMount() {
+    if (!TokenService.hasToken()) this.props.history.push('/signup');
     const { id } = this.props.match.params;
     ExerciseService.getAllBodyParts()
       .then((body_parts) => {

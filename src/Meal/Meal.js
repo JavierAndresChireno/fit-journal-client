@@ -3,12 +3,14 @@ import { withRouter } from 'react-router-dom';
 import MealService from '../Services/MealService';
 import FormatService from '../Services/FormatService';
 import './Meal.css';
+import TokenService from '../Services/TokenService';
 class Meal extends React.Component {
   state = {
     meal: {},
     error: null
   };
   componentDidMount() {
+    if (!TokenService.hasToken()) this.props.history.push('/signup');
     const mealId = this.props.match.params.id || '';
     MealService.getMealById(mealId)
       .then((meal) => {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import MealItem from '../MealItem/MealItem';
 import MealService from '../Services/MealService';
+import TokenService from '../Services/TokenService';
 import './MealList.css';
 
 class MealList extends Component {
@@ -11,6 +12,7 @@ class MealList extends Component {
     error: null
   };
   componentDidMount() {
+    if (!TokenService.hasToken()) this.props.history.push('/signup');
     MealService.getAllMeals()
       .then((meals) => {
         this.setState({

@@ -1,6 +1,6 @@
 import React from 'react';
 import './SignUp.css';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import ValidationError from './../ValidationError/ValidationError';
 import UserService from '../Services/UserService';
 import TokenService from '../Services/TokenService';
@@ -212,6 +212,9 @@ class SignUp extends React.Component {
           >
             Sign up
           </button>
+          <span className='login-create'>
+            Have a user? <Link to='/login'> Log in</Link>
+          </span>
         </form>
       </div>
     );

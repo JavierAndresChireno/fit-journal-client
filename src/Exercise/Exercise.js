@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import ExerciseService from '../Services/ExerciseService';
 import FormatService from '../Services/FormatService';
+import TokenService from '../Services/TokenService';
 import './Exercise.css';
 class Exercise extends React.Component {
   state = {
@@ -12,6 +13,7 @@ class Exercise extends React.Component {
   };
   componentDidMount() {
     const exerciseId = this.props.match.params.id || '';
+    if (!TokenService.hasToken()) this.props.history.push('/signup');
     ExerciseService.getExercise(exerciseId)
       .then((exercise) => {
         this.setState({

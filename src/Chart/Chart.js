@@ -3,6 +3,7 @@ import { Line } from 'react-chartjs-2';
 import { withRouter } from 'react-router-dom';
 import BodyCompositionService from '../Services/BodyCompositionService';
 import FormatService from '../Services/FormatService';
+import TokenService from '../Services/TokenService';
 import UserService from '../Services/UserService';
 
 class Chart extends Component {
@@ -14,6 +15,7 @@ class Chart extends Component {
     error: null
   };
   componentDidMount() {
+    if (!TokenService.hasToken()) this.props.history.push('/signup');
     UserService.getFullName().then((res) => {
       this.setState({
         userFullName: res.full_name

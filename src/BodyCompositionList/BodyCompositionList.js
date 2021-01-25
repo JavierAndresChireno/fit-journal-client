@@ -4,6 +4,7 @@ import { format } from 'date-fns';
 import BodyCompositionItem from '../BodyCompositionItem/BodyCompositionItem';
 import BodyCompositionService from '../Services/BodyCompositionService';
 import './BodyCompositionList.css';
+import TokenService from '../Services/TokenService';
 
 class BodyCompositionList extends Component {
   state = {
@@ -13,6 +14,7 @@ class BodyCompositionList extends Component {
     error: null
   };
   componentDidMount() {
+    if (!TokenService.hasToken()) this.props.history.push('/signup');
     this.getAllBodyComposition();
   }
   handleInputChange = (e) => {

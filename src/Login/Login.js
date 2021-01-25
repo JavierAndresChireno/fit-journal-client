@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import UserService from '../Services/UserService';
 import TokenService from '../Services/TokenService';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+import './Login.css';
 class Login extends Component {
   state = {
     email: '',
@@ -26,7 +27,7 @@ class Login extends Component {
           password: '',
           error: null
         });
-        this.props.history.push('/');
+        window.location = '/';
       })
       .catch((error) => {
         this.setState({ error: error.message });
@@ -68,6 +69,9 @@ class Login extends Component {
             required
           />
           <button>Sign in</button>
+          <span className='login-create'>
+            Don't have a user? <Link to='/signup'> Create account</Link>
+          </span>
         </form>
       </section>
     );

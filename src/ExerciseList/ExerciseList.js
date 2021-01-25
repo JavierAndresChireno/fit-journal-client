@@ -3,12 +3,14 @@ import { withRouter } from 'react-router-dom';
 import ExerciseService from '../Services/ExerciseService';
 import ExerciseItem from '../ExerciseItem/ExerciseItem';
 import './ExerciseList.css';
+import TokenService from '../Services/TokenService';
 class ExerciseList extends Component {
   state = {
     exercises: [],
     searchBy: ''
   };
   componentDidMount() {
+    if (!TokenService.hasToken()) this.props.history.push('/signup');
     ExerciseService.getAllExercises().then((exercises) => {
       this.setState({
         exercises

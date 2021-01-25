@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import BodyCompositionService from '../Services/BodyCompositionService';
+import TokenService from '../Services/TokenService';
 import './BodyComposition.css';
 class BodyComposition extends Component {
   state = {
@@ -9,6 +10,7 @@ class BodyComposition extends Component {
   };
   componentDidMount() {
     const { id } = this.props.match.params;
+    if (!TokenService.hasToken()) this.props.history.push('/signup');
     BodyCompositionService.getBodyCompositionById(id)
       .then((bodyComposition) => {
         this.setState({

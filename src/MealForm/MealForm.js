@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import './MealForm.css';
 
 import MealService from '../Services/MealService';
+import TokenService from '../Services/TokenService';
 
 class MealForm extends React.Component {
   state = {
@@ -14,7 +15,7 @@ class MealForm extends React.Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-
+    if (!TokenService.hasToken()) this.props.history.push('/signup');
     if (id) {
       MealService.getMealById(id)
         .then((meal) => {
