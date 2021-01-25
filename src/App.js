@@ -13,6 +13,7 @@ import MealForm from './MealForm/MealForm';
 import BodyCompositionList from './BodyCompositionList/BodyCompositionList';
 import BodyComposition from './BodyComposition/BodyComposition';
 import BodyCompositionForm from './BodyCompositionForm/BodyCompositionForm';
+import Chart from './Chart/Chart';
 
 function App() {
   return (
@@ -32,7 +33,7 @@ function App() {
 
         <main>
           <Route exact path='/'>
-            <LandingPage />
+            <Chart />
           </Route>
           <Route path='/signup'>
             <SignUp />

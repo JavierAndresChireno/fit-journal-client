@@ -108,6 +108,24 @@ const BodyCompositionService = {
         return res.json();
       })
       .then((bodyCompositions) => bodyCompositions);
+  },
+  getBodyCompositionAverage() {
+    return fetch(`${CONFIG.API_ENDPOINT}body-compositions/chart/average`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${TokenService.getToken()}`
+      }
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((res) => {
+            throw res;
+          });
+        }
+        return res.json();
+      })
+      .then((bodyCompositions) => bodyCompositions);
   }
 };
 
