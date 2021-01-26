@@ -4,10 +4,13 @@ import { BrowserRouter } from 'react-router-dom';
 import ListItem from './ExerciseItem';
 
 it('render ListItem without problem', () => {
+  const object = {
+    title: 'test'
+  };
   const div = document.createElement('div');
   ReactDOM.render(
     <BrowserRouter>
-      <ListItem />
+      <ListItem object={object} />
     </BrowserRouter>,
     div
   );
