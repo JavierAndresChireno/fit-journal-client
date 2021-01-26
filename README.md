@@ -147,11 +147,9 @@ New exercise Page
 New body composition Page
 ![New body composition Page](/github-images/wireframes/new-body-composition-wireframe.png)
 Meal details Page
-![Meal details Page](/github-images/wireframes/meal-details-wireframe.png)
+![Meal details Page](/github-images/wireframes/meals-details-wireframe.png)
 Exercise details Page
 ![Exercise details Page](/github-images/wireframes/exercise-details-wireframe.png)
-Meal details Page
-![Meal details Page](/github-images/wireframes/meal-details-wireframe.png)
 Edit body composition Page
 ![Edit body composition Page](/github-images/wireframes/edit-body-composition-wireframe.png)
 Edit exercise Page

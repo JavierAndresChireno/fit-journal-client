@@ -26,7 +26,7 @@ class BodyCompositionForm extends Component {
   };
   componentDidMount = () => {
     const { id } = this.props.match.params;
-    if (TokenService.hasToken()) this.props.history.push('/');
+    if (!TokenService.hasToken()) this.props.history.push('/');
     if (id) {
       BodyCompositionService.getBodyCompositionById(id).then((val) => {
         const {
