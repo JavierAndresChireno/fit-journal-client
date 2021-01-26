@@ -2,9 +2,9 @@
 
 Are you a fitness enthusiast ? The FIT-JOURNAL is the app for you. This app allows you to store your favorites meals from the recipes that you get on the internet, your favorites exercises and also allows you to track you body composition progress just as a Fitness journal but Virtual!
 
-### 1. Working Prototype (to do later)
+### 1. Working Prototype
 
-(Example) You can access a working prototype of the React app here: https://your-app-client.herokuapp.com/ and Node app here: https://your-app-server.herokuapp.com/
+You can access a working prototype of the React app here: https://fit-journal-client-bl1uh6ip4.vercel.app/ and Node app here: https://obscure-plains-76776.herokuapp.com
 
 ### 2. User Stories
 
