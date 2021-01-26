@@ -1,6 +1,6 @@
 body {
-  font-family: 'Titillium Web', sans-serif;
-  background-color: #eeeeee;
+  font-family: 'Rajdhani', sans-serif;
+  background-color: #ffffff;
   margin: 0;
   color: #373a40;
 }
@@ -8,12 +8,13 @@ body {
 header {
   display: flex;
   flex-direction: column;
-  background-color: #373a40 ;
-  color: #eeeeee;
-  margin: 0;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding-bottom: 10px;
+  background-color: #14213d ;
+  color: #ffffff;
+  margin: 0;
+  padding: 10px 20px;
 
 
 }
@@ -24,7 +25,38 @@ header h1 {
 }
 
 header a {
+  margin-right: 20px;
   text-decoration: none;
-  color: #eeeeee;
-  margin-right: 3px;
+  font-size: 20px;
+  font-weight: 600;
+ color: #ffffff;
+ 
+}
+
+.app-container {
+  margin: 10px 10%;
+}
+.toggle-menu {
+  background: none;
+  border: none;
+  
+}
+.nav-bar li{
+ list-style: none;
+ margin: 10px
+}
+
+.hide-nav{
+ display: none;
+}
+.title-menu{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.title-menu h1{
+  flex: 2;
+
 }

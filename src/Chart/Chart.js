@@ -5,7 +5,7 @@ import BodyCompositionService from '../Services/BodyCompositionService';
 import FormatService from '../Services/FormatService';
 import TokenService from '../Services/TokenService';
 import UserService from '../Services/UserService';
-
+import './Chart.css';
 class Chart extends Component {
   state = {
     userFullName: '',
@@ -44,32 +44,37 @@ class Chart extends Component {
     const { userFullName, labels, bodyFatData, weightData } = this.state;
     const firstName = userFullName.split(' ')[0];
     return (
-      <div>
+      <div className='chart-container'>
         <h3>
           Hello {firstName && FormatService.firstLetterUpperCase(firstName)},
           here you can see some of your progress !
         </h3>
-        <Line
-          data={{
-            labels: labels,
-            datasets: [
-              {
-                label: 'Weight (pounds)',
-                data: weightData,
-                fill: false,
-                borderColor: ['rgba(255, 99, 132, 1)'],
-                borderWidth: 3
-              },
-              {
-                label: 'Body fat (%)',
-                data: bodyFatData,
-                fill: false,
-                borderColor: ['#0a043c'],
-                borderWidth: 3
-              }
-            ]
-          }}
-        />
+        <div className='line-chart'>
+          <Line
+            data={{
+              labels: labels,
+
+              datasets: [
+                {
+                  label: 'Weight (pounds)',
+                  data: weightData,
+                  fill: false,
+                  borderColor: ['#fca311'],
+                  borderWidth: 3
+                },
+                {
+                  label: 'Body fat (%)',
+                  data: bodyFatData,
+                  fill: false,
+                  borderColor: ['#0a043c'],
+                  borderWidth: 3
+                }
+              ]
+            }}
+            height={100}
+            width={100}
+          />
+        </div>
       </div>
     );
   }

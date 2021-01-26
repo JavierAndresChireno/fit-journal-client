@@ -15,8 +15,11 @@ import BodyCompositionList from './BodyCompositionList/BodyCompositionList';
 import BodyComposition from './BodyComposition/BodyComposition';
 import BodyCompositionForm from './BodyCompositionForm/BodyCompositionForm';
 import Chart from './Chart/Chart';
-
+import menuImg from './images/menu.svg';
 class App extends React.Component {
+  state = {
+    hideNav: true
+  };
   getLogOut() {
     window.location = '/';
     TokenService.clearAuthToken();
@@ -24,23 +27,42 @@ class App extends React.Component {
   getNavBar() {
     if (TokenService.hasToken()) {
       return (
-        <>
-          <Link to='/'>Home</Link>
-          <Link to='/meals'>Meals</Link>
-          <Link to='/exercises'>Exercises</Link>
-          <Link to='/body-composition'>Body composition</Link>
-          <Link to='' onClick={this.getLogOut}>
-            Log Out
-          </Link>
-        </>
+        <ul>
+          <li>
+            <Link to='/'>Home</Link>
+          </li>
+          <li>
+            <Link to='/meals'>Meals</Link>
+          </li>
+          <li>
+            <Link to='/exercises'>Exercises</Link>
+          </li>
+          <li>
+            <Link to='/body-composition'>Body composition</Link>
+          </li>
+          <li>
+            <Link to='' onClick={this.getLogOut}>
+              Log Out
+            </Link>
+          </li>
+        </ul>
       );
     } else {
       return (
-        <>
-          <Link to='/'>Home</Link>
-          <Link to='/signup'>Sign Up</Link>
-          <Link to='/login'>Log in</Link>
-        </>
+        <ul>
+          <li>
+            {' '}
+            <Link to='/'>Home</Link>
+          </li>
+          <li>
+            {' '}
+            <Link to='/signup'>Sign Up</Link>
+          </li>
+          <li>
+            {' '}
+            <Link to='/login'>Log in</Link>
+          </li>
+        </ul>
       );
     }
   }
@@ -49,16 +71,31 @@ class App extends React.Component {
       return <Chart />;
     } else return <LandingPage />;
   }
+  handleToglle = () => {
+    let value = !this.state.hideNav;
+    this.setState({
+      hideNav: value
+    });
+  };
   render() {
+    const { hideNav } = this.state;
     return (
       <div className='App'>
         <Router>
           <header>
-            <h1> Fit Journal </h1>
-            <nav>{this.getNavBar()}</nav>
+            <div className='title-menu'>
+              <h1> FIT JOURNAL </h1>
+              <button className='toggle-menu' onClick={this.handleToglle}>
+                <img src={menuImg} alt='' />
+              </button>
+            </div>
+
+            <nav className={hideNav ? 'hide-nav nav-bar' : 'nav-bar'}>
+              {this.getNavBar()}
+            </nav>
           </header>
 
-          <main>
+          <main className='app-container'>
             <Route exact path='/'>
               {this.getHomeRoute()}
             </Route>
