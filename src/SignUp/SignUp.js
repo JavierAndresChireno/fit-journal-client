@@ -217,7 +217,7 @@ class SignUp extends React.Component {
             Sign up
           </button>
           <span className='login-create'>
-            Have a user? <Link to='/login'> Log in</Link>
+            Have an account? <Link to='/login'> Log in</Link>
           </span>
         </form>
       </div>
