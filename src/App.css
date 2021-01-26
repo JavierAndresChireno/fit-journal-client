@@ -50,7 +50,7 @@ header a {
 }
 .title-menu{
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
   padding: 0;
@@ -60,3 +60,25 @@ header a {
   flex: 2;
  margin-left: 0px;
 }
+
+@media only screen and (min-width: 900px) {
+  /* For desktop: */
+ .toggle-menu{
+   display: none;
+ }
+ .hide-nav{
+   display: flex;
+ }
+ header {
+   flex-direction: row;
+ }
+ .nav-bar ul {
+   display: flex;
+ }
+}
+@media only screen and (min-width: 1200px) {
+  /* For larger desktop: */
+  .app-container{
+    margin: 2% 30%  ;
+  }
+ }

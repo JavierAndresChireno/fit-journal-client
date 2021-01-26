@@ -82,8 +82,7 @@ class MealList extends Component {
               this.props.history.push('/new/meal');
             }}
           >
-            {' '}
-            + Add
+            + New meal
           </button>
         </div>
         <form

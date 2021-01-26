@@ -3,27 +3,46 @@
 }
 
 .body-composition h2{
-    margin: 0 0 10px 0;;
+    margin: 0 0 10px 0;
+    font-size: 26px;
+    color: #fca311;
 }
 
 .title-add {
     display: flex;
-
+    flex-direction: column;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+.title-add button{
+    background: none;
+    color: #14213d;
+    font-size: 20px;
+    margin-bottom: 5px;
+   
 }
 
 .add-body-composition {
-    margin: 5px 0 10px 10px;
+   
     font-size: 14px;
     height: 30px;
-    background-color: #373a40;
+    background-color: #14213d;
     color: #eeeeee;
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
     border: none;
     font-weight: 700;
 }
-
+.body-composition ul {
+    padding: 0;
+}
 .body-composition ul li {
     list-style:  none;
+    border-bottom:1px solid #fca311;
+}
+
+.body-composition ul li a {
+    text-decoration: none;
+    color:#000000;
 }
 
 .body-composition ul li h3 {
@@ -32,4 +51,16 @@
 
 .body-composition ul li p {
     margin-top: 0;
+    color: #14213d;
+    font-weight: 500;
 }
+
+
+@media only screen and (min-width: 1200px) {
+    /* For larger desktop: */
+    .body-composition h2{
+        margin: 0 0 10px 0;
+        font-size: 36px;
+        color: #fca311;
+    }
+   }

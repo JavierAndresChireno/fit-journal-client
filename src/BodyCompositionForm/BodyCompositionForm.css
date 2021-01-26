@@ -1,3 +1,74 @@
+.body-composition-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 50px 20px;
+    color: #000000;
+    padding-top: 0;
+    padding-bottom: 50px;
+    padding: 0 15px 50px;
+    font-size: 18px;
+}
+.body-composition-container h2 {
+    margin: 0;
+    padding: 10px 0;
+    color: #fca311;
+    font-size: 30px;
+}
+
+.body-composition-container form {
+    display: flex;
+    flex-direction: column;
+    padding: 5px ;
+}
+
+.body-composition-container label {
+    font-size: 18px;
+    font-weight: 700;
+    color: #14213d;
+    padding-right: 5px;
+}
+.body-composition-container input {
+    margin-bottom: 15px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+
+}
+
+
+.body-composition-container form button {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    border:none;
+    background-color: #14213d;
+    color: #eeeeee;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    border-radius: 5%;
+    align-self: center;
+    padding: 1%;
+}
+
+.form-buttons{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.body-group{
+    border: 1px solid #14213d;
+    border-radius: 10px;
+    margin: 10px 10px 10px 0;
+    padding: 10px;
+}
+
+.body-group .right{
+    margin-right: 5px;
+}
+
+
 .body-composition-form-error {
     color: red
 }

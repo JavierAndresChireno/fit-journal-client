@@ -24,21 +24,29 @@ class App extends React.Component {
     window.location = '/';
     TokenService.clearAuthToken();
   }
-  getNavBar() {
+  getNavBar = () => {
     if (TokenService.hasToken()) {
       return (
         <ul>
           <li>
-            <Link to='/'>Home</Link>
+            <Link to='/' onClick={this.handleToglle}>
+              Home
+            </Link>
           </li>
           <li>
-            <Link to='/meals'>Meals</Link>
+            <Link to='/meals' onClick={this.handleToglle}>
+              Meals
+            </Link>
           </li>
           <li>
-            <Link to='/exercises'>Exercises</Link>
+            <Link to='/exercises' onClick={this.handleToglle}>
+              Exercises
+            </Link>
           </li>
           <li>
-            <Link to='/body-composition'>Body composition</Link>
+            <Link to='/body-composition' onClick={this.handleToglle}>
+              Body composition
+            </Link>
           </li>
           <li>
             <Link to='' onClick={this.getLogOut}>
@@ -65,7 +73,7 @@ class App extends React.Component {
         </ul>
       );
     }
-  }
+  };
   getHomeRoute() {
     if (TokenService.hasToken()) {
       return <Chart />;

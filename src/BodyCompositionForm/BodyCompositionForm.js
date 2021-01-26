@@ -133,166 +133,174 @@ class BodyCompositionForm extends Component {
           <div className='body-composition-form-error'>
             {error && <p>{error}</p>}
           </div>
-          <div className='body-group'>
-            <h3>Arms</h3>
-            <label htmlFor='leftArm'>Left (inches):</label>
-            <input
-              step='0.01'
-              defaultValue={this.state.leftArm}
-              min='0'
-              type='number'
-              id='leftArm'
-              name='leftArm'
-              onChange={(e) => {
-                this.handleInputChange(e);
-              }}
-            />
-            <label htmlFor='leftArm'>Right (inches):</label>
-            <input
-              step='0.01'
-              defaultValue={this.state.rightArm}
-              min='0'
-              type='number'
-              id='rightArm'
-              name='rightArm'
-              onChange={(e) => {
-                this.handleInputChange(e);
-              }}
-            />
+          <div className='to-wrap'>
+            <div className='body-group'>
+              <h3>Arms</h3>
+              <label htmlFor='leftArm' className='right'>
+                Left (inches):
+              </label>
+              <input
+                step='0.01'
+                defaultValue={this.state.leftArm}
+                min='0'
+                type='number'
+                id='leftArm'
+                name='leftArm'
+                onChange={(e) => {
+                  this.handleInputChange(e);
+                }}
+              />
+              <label htmlFor='leftArm' className='right'>
+                Right (inches):
+              </label>
+              <input
+                step='0.01'
+                defaultValue={this.state.rightArm}
+                min='0'
+                type='number'
+                id='rightArm'
+                name='rightArm'
+                onChange={(e) => {
+                  this.handleInputChange(e);
+                }}
+              />
+            </div>
+            <div className='body-group'>
+              <h3>Chest</h3>
+              <label htmlFor='chest'>Chest (inches):</label>
+              <input
+                step='0.01'
+                defaultValue={this.state.chest}
+                type='number'
+                id='chest'
+                name='chest'
+                onChange={(e) => {
+                  this.handleInputChange(e);
+                }}
+              />
+            </div>
+            <div className='body-group'>
+              <h3>Waist</h3>
+              <label htmlFor='waist'>Waist (inches):</label>
+              <input
+                step='0.01'
+                defaultValue={this.state.waist}
+                type='number'
+                id='waist'
+                name='waist'
+                onChange={(e) => {
+                  this.handleInputChange(e);
+                }}
+              />
+            </div>
+            <div className='body-group'>
+              <h3>Hips</h3>
+              <label htmlFor='hips'>Hips (inches):</label>
+              <input
+                step='0.01'
+                defaultValue={this.state.hips}
+                type='number'
+                id='hips'
+                name='hips'
+                onChange={(e) => {
+                  this.handleInputChange(e);
+                }}
+              />
+            </div>
+            <div className='body-group'>
+              <h3>Thighs</h3>
+              <label htmlFor='leftThigh' className='right'>
+                Left (inches):
+              </label>
+              <input
+                step='0.01'
+                defaultValue={this.state.leftThigh}
+                type='number'
+                id='leftThigh'
+                name='leftThigh'
+                onChange={(e) => {
+                  this.handleInputChange(e);
+                }}
+              />
+              <label htmlFor='rightThigh'>Right (inches):</label>
+              <input
+                step='0.01'
+                defaultValue={this.state.rightThigh}
+                type='number'
+                id='rightThigh'
+                name='rightThigh'
+                onChange={(e) => {
+                  this.handleInputChange(e);
+                }}
+              />
+            </div>
+            <div className='body-group'>
+              <h3>Calves</h3>
+              <label htmlFor='leftCalf' className='right'>
+                Left (inches):
+              </label>
+              <input
+                step='0.01'
+                defaultValue={this.state.leftCalf}
+                min='0'
+                type='number'
+                id='leftCalf'
+                name='leftCalf'
+                onChange={(e) => {
+                  this.handleInputChange(e);
+                }}
+              />
+              <label htmlFor='rightCalf'>Right (inches):</label>
+              <input
+                step='0.01'
+                defaultValue={this.state.rightCalf}
+                min='0'
+                type='number'
+                id='rightCalf'
+                name='rightCalf'
+                onChange={(e) => {
+                  this.handleInputChange(e);
+                }}
+              />
+            </div>
+            <div className='body-group'>
+              <h3>Weight</h3>
+              <label htmlFor='weight'>Weight (pounds):</label>
+              <input
+                step='0.01'
+                defaultValue={this.state.weight}
+                min='0'
+                type='number'
+                id='weight'
+                name='weight'
+                onChange={(e) => {
+                  this.handleInputChange(e);
+                }}
+              />
+            </div>
+            <div className='body-group'>
+              <h3>Body fat</h3>
+              <label htmlFor='bodyFat'>Body fat (percent):</label>
+              <input
+                step='0.01'
+                defaultValue={this.state.bodyFat}
+                min='0'
+                type='number'
+                id='bodyFat'
+                name='bodyFat'
+                onChange={(e) => {
+                  this.handleInputChange(e);
+                }}
+              />
+            </div>
           </div>
-          <div className='body-group'>
-            <h3>Chest</h3>
-            <label htmlFor='chest'>Chest (inches):</label>
-            <input
-              step='0.01'
-              defaultValue={this.state.chest}
-              type='number'
-              id='chest'
-              name='chest'
-              onChange={(e) => {
-                this.handleInputChange(e);
-              }}
-            />
+          <div className='form-buttons'>
+            <button>{id ? 'Update' : 'Create'}</button>
+            <button type='button' onClick={this.props.history.goBack}>
+              {' '}
+              Cancel
+            </button>
           </div>
-          <div className='body-group'>
-            <h3>Waist</h3>
-            <label htmlFor='waist'>Waist (inches):</label>
-            <input
-              step='0.01'
-              defaultValue={this.state.waist}
-              type='number'
-              id='waist'
-              name='waist'
-              onChange={(e) => {
-                this.handleInputChange(e);
-              }}
-            />
-          </div>
-          <div className='body-group'>
-            <h3>Hips</h3>
-            <label htmlFor='hips'>Hips (inches):</label>
-            <input
-              step='0.01'
-              defaultValue={this.state.hips}
-              type='number'
-              id='hips'
-              name='hips'
-              onChange={(e) => {
-                this.handleInputChange(e);
-              }}
-            />
-          </div>
-          <div className='body-group'>
-            <h3>Thighs</h3>
-            <label htmlFor='leftThigh'>Left (inches):</label>
-            <input
-              step='0.01'
-              defaultValue={this.state.leftThigh}
-              type='number'
-              id='leftThigh'
-              name='leftThigh'
-              onChange={(e) => {
-                this.handleInputChange(e);
-              }}
-            />
-            <label htmlFor='rightThigh'>Right (inches):</label>
-            <input
-              step='0.01'
-              defaultValue={this.state.rightThigh}
-              type='number'
-              id='rightThigh'
-              name='rightThigh'
-              onChange={(e) => {
-                this.handleInputChange(e);
-              }}
-            />
-          </div>
-          <div className='body-group'>
-            <h3>Calves</h3>
-            <label htmlFor='leftCalf'>Left (inches):</label>
-            <input
-              step='0.01'
-              defaultValue={this.state.leftCalf}
-              min='0'
-              type='number'
-              id='leftCalf'
-              name='leftCalf'
-              onChange={(e) => {
-                this.handleInputChange(e);
-              }}
-            />
-            <label htmlFor='leftCalf'>Right (inches):</label>
-            <input
-              step='0.01'
-              defaultValue={this.state.rightCalf}
-              min='0'
-              type='number'
-              id='rightCalf'
-              name='rightCalf'
-              onChange={(e) => {
-                this.handleInputChange(e);
-              }}
-            />
-          </div>
-          <div className='body-group'>
-            <h3>Weight</h3>
-            <label htmlFor='weight'>Weight (pounds):</label>
-            <input
-              step='0.01'
-              defaultValue={this.state.weight}
-              min='0'
-              type='number'
-              id='weight'
-              name='weight'
-              onChange={(e) => {
-                this.handleInputChange(e);
-              }}
-            />
-          </div>
-          <div className='body-group'>
-            <h3>Body fat</h3>
-            <label htmlFor='bodyFat'>Body fat (percent):</label>
-            <input
-              step='0.01'
-              defaultValue={this.state.bodyFat}
-              min='0'
-              type='number'
-              id='bodyFat'
-              name='bodyFat'
-              onChange={(e) => {
-                this.handleInputChange(e);
-              }}
-            />
-          </div>
-          <button>{id ? 'Update' : 'Create'}</button>
-          <button
-            type='button'
-            onClick={() => {
-              this.props.history.goBack();
-            }}
-          >
-            Cancel
-          </button>
         </form>
       </div>
     );

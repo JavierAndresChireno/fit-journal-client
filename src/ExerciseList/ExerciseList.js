@@ -59,7 +59,7 @@ class ExerciseList extends Component {
             }}
           >
             {' '}
-            + Add
+            + Add exercise
           </button>
         </div>
         <form

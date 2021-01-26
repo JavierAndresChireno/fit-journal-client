@@ -1,47 +1,81 @@
 .exercise-form-container{
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     margin: 50px 20px;
-    background-color: #373a40;
-    color: #eeeeee;
+    color: #000000;
     padding-top: 0;
     padding-bottom: 50px;
-    padding: 0 15px 50px
+    padding: 0 15px 50px;
+    font-size: 18px;
 }
 .exercise-form-container h2 {
-    background-color: #686d76;
     margin: 0;
-    text-align: center;
     padding: 10px 0;
+    color: #fca311;
+    font-size: 30px;
 }
 
 .exercise-form-container form {
     display: flex;
     flex-direction: column;
-    padding: 5px 40px;
+    padding: 5px ;
 }
 
+.exercise-form-container label {
+    font-size: 18px;
+    font-weight: 700;
+    color: #14213d;
+}
 .exercise-form-container input {
     margin-bottom: 15px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+
+}
+.exercise-form-container textarea {
+    margin-bottom: 15px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+
+}
+.exercise-form-container select {
+    margin-bottom: 15px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
 
 }
 
 .exercise-form-container form button {
-    font-family: 'Titillium Web', sans-serif;
-    font-weight: 500;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
     border:none;
-    background-color: #686d76;
+    background-color: #14213d;
     color: #eeeeee;
     margin-top: 15px;
     margin-bottom: 15px;
     margin-right: 10px;
+    border-radius: 5%;
+    align-self: center;
+    padding: 1%;
 }
+
+.form-buttons{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 
 .exercise-form-muscles{
     margin-bottom: 10px;
+    font-size: 18px;
 }
 .exercise-form-container .key-property{
     font-weight: 700;
+    color: #14213d;
+    font-size: 18px;
 }
 
 .exercise-form-error {

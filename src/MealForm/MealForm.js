@@ -95,7 +95,7 @@ class MealForm extends React.Component {
 
     return (
       <div className='meal-form-container'>
-        <h2>Meal</h2>
+        <h2>New meal</h2>
         <form
           action=''
           onSubmit={(e) => {
@@ -135,12 +135,13 @@ class MealForm extends React.Component {
               this.handleInputChange(e);
             }}
           ></textarea>
-
-          <button>{id ? 'Update' : 'Create'}</button>
-          <button type='button' onClick={this.props.history.goBack}>
-            {' '}
-            Cancel
-          </button>
+          <div className='form-buttons'>
+            <button>{id ? 'Update' : 'Create'}</button>
+            <button type='button' onClick={this.props.history.goBack}>
+              {' '}
+              Cancel
+            </button>
+          </div>
         </form>
       </div>
     );

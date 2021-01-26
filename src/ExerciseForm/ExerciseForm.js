@@ -187,7 +187,7 @@ class ExerciseForm extends React.Component {
 
     return (
       <div className='exercise-form-container'>
-        <h2>Exercise</h2>
+        <h2>New exercise</h2>
         <form
           action=''
           onSubmit={(e) => {
@@ -272,12 +272,13 @@ class ExerciseForm extends React.Component {
               this.handleInputChange(e);
             }}
           ></textarea>
-
-          <button>{id ? 'Update' : 'Create'}</button>
-          <button type='button' onClick={this.props.history.goBack}>
-            {' '}
-            Cancel
-          </button>
+          <div className='form-buttons'>
+            <button>{id ? 'Update' : 'Create'}</button>
+            <button type='button' onClick={this.props.history.goBack}>
+              {' '}
+              Cancel
+            </button>
+          </div>
         </form>
       </div>
     );

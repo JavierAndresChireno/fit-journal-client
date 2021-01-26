@@ -42,10 +42,11 @@ class Meal extends React.Component {
   }
 
   render() {
-    const { title, description, url } = this.state.meal;
+    const { title, description, url, error } = this.state.meal;
     return (
       <div className='meal-container'>
         <h2>Meal</h2>
+        <div className='error-container'>{error && <p>{error}</p>}</div>
         <h3>{FormatService.firstLetterUpperCase(title)}</h3>
         <p>{FormatService.firstLetterUpperCase(description)}</p>
         {url ? <a href={url}> Visit a {title} reference</a> : ''}
