@@ -6,7 +6,12 @@ import Exercise from './Exercise/Exercise.js';
 import TokenService from './Services/TokenService';
 import SignUp from './SignUp/SignUp';
 import Login from './Login/Login';
-import { Route, BrowserRouter as Router, Link } from 'react-router-dom';
+import {
+  Route,
+  BrowserRouter as Router,
+  Link,
+  useHistory
+} from 'react-router-dom';
 import ExerciseForm from './ExerciseForm/ExerciseForm';
 import MealList from './MealsList/MealList';
 import Meal from './Meal/Meal';
@@ -20,10 +25,10 @@ class App extends React.Component {
   state = {
     hideNav: true
   };
-  getLogOut() {
+  getLogOut = () => {
     window.location = '/';
     TokenService.clearAuthToken();
-  }
+  };
   getNavBar = () => {
     if (TokenService.hasToken()) {
       return (
