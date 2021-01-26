@@ -89,7 +89,6 @@ class App extends React.Component {
                 <img src={menuImg} alt='' />
               </button>
             </div>
-
             <nav className={hideNav ? 'hide-nav nav-bar' : 'nav-bar'}>
               {this.getNavBar()}
             </nav>
