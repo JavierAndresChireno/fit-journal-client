@@ -9,6 +9,9 @@ class Login extends Component {
     password: '',
     error: null
   };
+  componentDidMount = () => {
+    if (TokenService.hasToken()) this.props.history.push('/');
+  };
   changeField = (target) => {
     const { id, value } = target;
     this.setState({
@@ -70,8 +73,10 @@ class Login extends Component {
           />
           <button>Sign in</button>
           <span className='login-create'>
-            Don't have a user? <Link to='/signup'> Create account</Link>
+            Don't have an account? <Link to='/signup'> Create account</Link>
           </span>
+          <span className='login-user'>Test user: dunder@gmail.com</span>
+          <span className='login-user'>Password: 'password'</span>
         </form>
       </section>
     );

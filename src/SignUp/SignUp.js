@@ -28,6 +28,10 @@ class SignUp extends React.Component {
     },
     error: null
   };
+
+  componentDidMount = () => {
+    if (TokenService.hasToken()) this.props.history.push('/');
+  };
   changeField = (target) => {
     const { id, value } = target;
     this.setState({

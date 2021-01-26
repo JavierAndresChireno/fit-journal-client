@@ -60,15 +60,21 @@ class App extends React.Component {
         <ul>
           <li>
             {' '}
-            <Link to='/'>Home</Link>
+            <Link to='/' onClick={this.handleToglle}>
+              Home
+            </Link>
           </li>
           <li>
             {' '}
-            <Link to='/signup'>Sign Up</Link>
+            <Link to='/signup' onClick={this.handleToglle}>
+              Sign Up
+            </Link>
           </li>
           <li>
             {' '}
-            <Link to='/login'>Log in</Link>
+            <Link to='/login' onClick={this.handleToglle}>
+              Log in
+            </Link>
           </li>
         </ul>
       );
@@ -87,8 +93,9 @@ class App extends React.Component {
   };
   render() {
     const { hideNav } = this.state;
+
     return (
-      <div className='App'>
+      <div className='App '>
         <Router>
           <header>
             <div className='title-menu'>
@@ -99,7 +106,7 @@ class App extends React.Component {
             </div>
             <nav className={hideNav ? 'hide-nav nav-bar' : 'nav-bar'}>
               {this.getNavBar()}
-            </nav>
+            </nav>{' '}
           </header>
 
           <main className='app-container'>
