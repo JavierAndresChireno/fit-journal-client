@@ -166,18 +166,105 @@ Edit meal Page
       - **Register.js** (stateful) -
     - **Navbar.js** (stateless) -
 
-### 7. Back-end Structure - Business Objects (to do later)
+### 7. Back-end Structure - Business Objects
 
-- (Example) Users (database table)
-  - id (auto-generated)
-  - username (email validation)
-  - password (at least 8 chars, at least one alpha and a special character validation)
+- Users (database table)
+
+  - id (auto-generated integer)
+  - email (text)
+  - full_name (text)
+  - password (text)
+  - date_created (timestamp)
+  - date_updated (timestamp)
+
+- Exercises (database table)
+
+  - id (auto-generated integer)
+  - title (text)
+  - url (text)
+  - description (text)
+  - date_created (timestamp)
+  - user_id (integer foreign key)
+
+- Meals (database table)
+
+  - id (auto-generated integer)
+  - title (text)
+  - url (text)
+  - description (text)
+  - date_created (timestamp)
+  - user_id (integer foreign key)
+
+- Users_body_composition (database table)
+
+  - id (auto-generated integer)
+  - left_arm (numeric)
+  - right (numeric)
+  - chest (numeric)
+  - waist (numeric)
+  - hips (numeric)
+  - left_thigh (numeric)
+  - right_calf (numeric)
+  - weight (numeric)
+  - body_fat (numeric)
+  - date_created (timestamp)
+  - date_updated (timestamp)
+  - user_id (integer foreign key)
+
+- Exercises_muscle_group (database table)
+
+  - id (auto-generated integer)
+  - exercise_id (integer foreign key)
+  - muscle_id (integer foreign key)
+
+- Body_part (database table)
+
+  - id (auto-generated integer)
+  - name (text)
+  - category ( body_category as ENUM ('lower body','upper body'))
+  - date_created (timestamp)
+
+- Muscle_group (database table)
+  - id (auto-generated integer)
+  - name (text)
+  - body_part_id (integer foreign key)
+  - date_created (timestamp)
 
 ### 8. API Documentation (to do later)
 
 API Documentation details:
 
-- (Example) get all users
+#### GET `/api/body-parts/`
+
+```js
+// req.header
+{
+    "Authorization": "Bearer ${token}",
+}
+
+// res.body
+[
+    {
+        "id": 1,
+        "name": "chest",
+        "category": "upper body",
+        "date_created": "2020-12-31T02:10:42.853Z"
+    },
+    {
+        "id": 2,
+        "name": "back",
+        "category": "upper body",
+        "date_created": "2020-12-31T02:10:42.853Z"
+    },
+    {
+        "id": 3,
+        "name": "arms",
+        "category": "upper body",
+        "date_created": "2020-12-31T02:10:42.853Z"
+    },
+   ...
+]
+```
 
 ### 9. Screenshots (to do later)
 

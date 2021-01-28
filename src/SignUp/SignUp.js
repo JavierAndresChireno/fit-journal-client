@@ -124,7 +124,7 @@ class SignUp extends React.Component {
           },
           error: null
         });
-        this.props.history.push('/');
+        window.location = '/';
       })
       .catch((res) => {
         this.setState({ error: res.message });
