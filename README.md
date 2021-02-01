@@ -230,7 +230,7 @@ Edit meal Page
   - body_part_id (integer foreign key)
   - date_created (timestamp)
 
-### 8. API Documentation (to do later)
+### 8. API Documentation
 
 API Documentation details:
 
