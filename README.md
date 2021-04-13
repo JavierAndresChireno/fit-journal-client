@@ -157,7 +157,7 @@ Edit exercise Page
 Edit meal Page
 ![Edit meal Page](/github-images/wireframes/edit-meal-wireframe.png)
 
-### 6. Front-end Structure - React Components Map (to do later)
+### 6. Front-end Structure - React Components Map
 
 - (Example) **Index.js** (stateless)
   - **App.js** (stateful)
@@ -230,7 +230,7 @@ Edit meal Page
   - body_part_id (integer foreign key)
   - date_created (timestamp)
 
-### 8. API Documentation (to do later)
+### 8. API Documentation 
 
 API Documentation details:
 
@@ -1089,21 +1089,7 @@ API Documentation details:
 ]
 ```
 
-### 9. Screenshots (to do later)
-
-(Example) Landing Page
-:-------------------------:
-![Landing Page](/github-images/screenshots/landing-page-screenshot.png)
-Register Page
-![Register Page](/github-images/screenshots/register-page-screenshot.png)
-
-### 10. Development Roadmap (to do later)
-
-This is v1.0 of the app, but future enhancements are expected to include:
-
-- (Example) add more functionality
-
-### 11. How to run it (done)
+### 9. How to run it (done)
 
 Use command line to navigate into the project folder and run the following in terminal
 
