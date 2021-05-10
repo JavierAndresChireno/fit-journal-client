@@ -21,8 +21,10 @@ const UserService = {
   logIn(user) {
     return fetch(`${config.API_ENDPOINT}users/login`, {
       method: 'POST',
+      mode: 'cors',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        Origin: 'https://fit-journal-client-yefenny.vercel.app'
       },
       body: JSON.stringify(user)
     }).then((res) =>
