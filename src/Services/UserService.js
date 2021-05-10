@@ -24,7 +24,7 @@ const UserService = {
       mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
-        Origin: 'https://fit-journal-client-yefenny.vercel.app'
+        origin: 'https://fit-journal-client-yefenny.vercel.app'
       },
       body: JSON.stringify(user)
     }).then((res) =>
