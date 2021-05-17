@@ -1,98 +1,100 @@
 .meals {
-    padding: 20px;
+  padding: 20px;
 }
 
-.meals h2{
-    margin: 0 0 10px 0;
-    font-size: 26px;
-    color: #fca311;
+.meals h2 {
+  margin: 0 0 10px 0;
+  font-size: 26px;
+  color: #fca311;
 }
 
 .title-add {
-    display: flex;
-    flex-direction: column;
-    align-items: baseline;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  flex-wrap: wrap;
 }
-.title-add button{
-    background: none;
-    color: #14213d;
-    font-size: 20px;
-    margin-bottom: 5px;
+.title-add button {
+  background: none;
+  color: #14213d;
+  font-size: 20px;
+  margin-bottom: 5px;
 }
 
 .add-meal {
-   
-    font-size: 14px;
-    height: 30px;
-    background-color: #14213d;
-    color: #eeeeee;
-    font-family: 'Rajdhani', sans-serif;
-    border: none;
-    font-weight: 700;
+  font-size: 14px;
+  height: 30px;
+  background-color: #14213d;
+  color: #eeeeee;
+  font-family: 'Rajdhani', sans-serif;
+  border: none;
+  font-weight: 700;
 }
 .meals ul {
-    padding: 0;
+  padding: 0;
 }
 .meals ul li {
-    list-style:  none;
-    border-bottom:1px solid #fca311;
+  list-style: none;
+  border-bottom: 1px solid #fca311;
 }
 
 .meals ul li a {
-    text-decoration: none;
-    color:#000000;
+  text-decoration: none;
+  color: #000000;
 }
 
 .meals ul li h3 {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .meals ul li p {
-    margin-top: 0;
-    color: #14213d;
-    font-weight: 500;
+  margin-top: 0;
+  color: #14213d;
+  font-weight: 500;
 }
 
-.searchForm{
-    display: flex;
-    justify-content: flex-start;
-    align-items: baseline;
-    flex-wrap: wrap;
+.searchForm {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  flex-wrap: wrap;
 }
-.searchForm label{
-    font-size: 17px;
-    margin-right: 5px;
-    color: #000000;
-    font-weight: 600;
+.searchForm label {
+  font-size: 17px;
+  margin-right: 5px;
+  color: #000000;
+  font-weight: 600;
 }
 .searchForm input {
-    -webkit-appearance: none;
-    border:1px solid #e5e5e5;
-    border-radius: 3%;
-    font-size: 17px;
-    font-family: 'Rajdhani', sans-serif;
+  -webkit-appearance: none;
+  border: 1px solid #e5e5e5;
+  border-radius: 3%;
+  font-size: 17px;
+  font-family: 'Rajdhani', sans-serif;
 }
 
 .searchForm button {
-    -webkit-appearance: none;
-    background: #14213d;
-    border:1px solid #14213d;
-    border-radius: 4%;
-    font-family: 'Rajdhani', sans-serif;
-    color:#eeeeee;
-    font-weight: 600;
-    font-size: 17px;
-    margin-top: 5px;
-    margin-right: 5px;
-
+  -webkit-appearance: none;
+  background: #14213d;
+  border: 1px solid #14213d;
+  border-radius: 4%;
+  font-family: 'Rajdhani', sans-serif;
+  color: #eeeeee;
+  font-weight: 600;
+  font-size: 17px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+.searchForm button:hover {
+  background-color: #233e8b;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 1200px) {
-    /* For larger desktop: */
-    .meals h2{
-        margin: 0 0 10px 0;
-        font-size: 36px;
-        color: #fca311;
-    }
-   }
+  /* For larger desktop: */
+  .meals h2 {
+    margin: 0 0 10px 0;
+    font-size: 36px;
+    color: #fca311;
+  }
+}
