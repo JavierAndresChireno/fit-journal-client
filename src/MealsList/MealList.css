@@ -20,6 +20,10 @@
   font-size: 20px;
   margin-bottom: 5px;
 }
+.title-add button:hover {
+  cursor: pointer;
+  color: #182849;
+}
 
 .add-meal {
   font-size: 14px;
@@ -86,7 +90,7 @@
   margin-right: 5px;
 }
 .searchForm button:hover {
-  background-color: #233e8b;
+  background-color: #192a4e;
   cursor: pointer;
 }
 

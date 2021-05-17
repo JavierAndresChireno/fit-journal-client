@@ -56,12 +56,8 @@ class Exercise extends React.Component {
   }
 
   render() {
-    const {
-      title,
-      description,
-      url,
-      exercises_muscle_group
-    } = this.state.exercise;
+    const { title, description, url, exercises_muscle_group } =
+      this.state.exercise;
     return (
       <div className='exercise-container'>
         <h2>Exercise</h2>
@@ -77,7 +73,13 @@ class Exercise extends React.Component {
           {ExerciseService.createMusclesString(exercises_muscle_group)}
         </div>
         <p>{FormatService.firstLetterUpperCase(description)}</p>
-        {url ? <a href={url}> Visit a {title} reference</a> : ''}
+        {url ? (
+          <a href={url} rel='noreferrer' target='_blank'>
+            Visit a {title} reference
+          </a>
+        ) : (
+          ''
+        )}
         <div className='exercise-buttons'>
           <button
             onClick={() => {

@@ -1,44 +1,49 @@
 .exercise-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding: 10px;
-    justify-content: flex-start;
-    align-content: center;
-    font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 10px;
+  justify-content: flex-start;
+  align-content: center;
+  font-size: 18px;
 }
 .exercise-container h2 {
-    color:#fca311;
-    font-size: 32px;
+  color: #fca311;
+  font-size: 32px;
 }
 .exercise-container h3 {
-    color:#14213d;
-    font-size: 24px;
+  color: #14213d;
+  font-size: 24px;
 }
 .exercise-container button {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    border:none;
-    background-color: #e5e5e5  ;
-    color: #fca311;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-right: 10px;
-    border-radius: 5%;
-    align-self: center;
-    padding: 1%;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  background-color: #e5e5e5;
+  color: #fca311;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right: 10px;
+  border-radius: 5%;
+  align-self: center;
+  padding: 1%;
+}
+.exercise-container button:hover {
+  cursor: pointer;
+  background-color: #fca311;
+  color: #e5e5e5;
 }
 
 .exercise-container a {
-    font-size: 18px;
-    font-weight: 600;
-    color: #14213d;
+  font-size: 18px;
+  font-weight: 600;
+  color: #14213d;
 }
 
 .exercise-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
 }

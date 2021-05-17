@@ -1,48 +1,54 @@
 .meal-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding: 10px;
-    justify-content: flex-start;
-    align-content: center;
-    font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 10px;
+  justify-content: flex-start;
+  align-content: center;
+  font-size: 18px;
 }
 .meal-container h2 {
-    color:#fca311;
-    font-size: 32px;
+  color: #fca311;
+  font-size: 32px;
 }
 .meal-container h3 {
-    color:#14213d;
-    font-size: 24px;
+  color: #14213d;
+  font-size: 24px;
 }
 .meal-container button {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    border:none;
-    background-color: #e5e5e5  ;
-    color: #fca311;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-right: 10px;
-    border-radius: 5%;
-    align-self: center;
-    padding: 1%;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  background-color: #e5e5e5;
+  color: #fca311;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right: 10px;
+  border-radius: 5%;
+  align-self: center;
+  padding: 1%;
+}
+
+.meal-container button:hover {
+  background-color: #fca311;
+  color: #e5e5e5;
+  cursor: pointer;
 }
 
 .meal-container a {
-    font-size: 18px;
-    font-weight: 600;
-    color: #14213d;
+  font-size: 18px;
+  font-weight: 600;
+  color: #14213d;
 }
 
 .meal-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
 }
 
 .error-container {
-    color: red
+  color: red;
 }

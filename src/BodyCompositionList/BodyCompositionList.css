@@ -1,66 +1,67 @@
 .body-composition {
-    padding: 20px;
+  padding: 20px;
 }
 
-.body-composition h2{
-    margin: 0 0 10px 0;
-    font-size: 26px;
-    color: #fca311;
+.body-composition h2 {
+  margin: 0 0 10px 0;
+  font-size: 26px;
+  color: #fca311;
 }
 
 .title-add {
-    display: flex;
-    flex-direction: column;
-    align-items: baseline;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  flex-wrap: wrap;
 }
-.title-add button{
-    background: none;
-    color: #14213d;
-    font-size: 20px;
-    margin-bottom: 5px;
-   
+.title-add button {
+  background: none;
+  color: #14213d;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.title-add button:hover {
+  cursor: pointer;
+  color: #182849;
 }
 
 .add-body-composition {
-   
-    font-size: 14px;
-    height: 30px;
-    background-color: #14213d;
-    color: #eeeeee;
-    font-family: 'Rajdhani', sans-serif;
-    border: none;
-    font-weight: 700;
+  font-size: 14px;
+  height: 30px;
+  background-color: #14213d;
+  color: #eeeeee;
+  font-family: 'Rajdhani', sans-serif;
+  border: none;
+  font-weight: 700;
 }
 .body-composition ul {
-    padding: 0;
+  padding: 0;
 }
 .body-composition ul li {
-    list-style:  none;
-    border-bottom:1px solid #fca311;
+  list-style: none;
+  border-bottom: 1px solid #fca311;
 }
 
 .body-composition ul li a {
-    text-decoration: none;
-    color:#000000;
+  text-decoration: none;
+  color: #000000;
 }
 
 .body-composition ul li h3 {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .body-composition ul li p {
-    margin-top: 0;
-    color: #14213d;
-    font-weight: 500;
+  margin-top: 0;
+  color: #14213d;
+  font-weight: 500;
 }
 
-
 @media only screen and (min-width: 1200px) {
-    /* For larger desktop: */
-    .body-composition h2{
-        margin: 0 0 10px 0;
-        font-size: 36px;
-        color: #fca311;
-    }
-   }
+  /* For larger desktop: */
+  .body-composition h2 {
+    margin: 0 0 10px 0;
+    font-size: 36px;
+    color: #fca311;
+  }
+}

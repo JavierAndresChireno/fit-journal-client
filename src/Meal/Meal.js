@@ -49,7 +49,13 @@ class Meal extends React.Component {
         <div className='error-container'>{error && <p>{error}</p>}</div>
         <h3>{FormatService.firstLetterUpperCase(title)}</h3>
         <p>{FormatService.firstLetterUpperCase(description)}</p>
-        {url ? <a href={url}> Visit a {title} reference</a> : ''}
+        {url ? (
+          <a href={url} rel='noreferrer' target='_blank'>
+            Visit a {title} reference
+          </a>
+        ) : (
+          ''
+        )}
         <div className='meal-buttons'>
           <button
             onClick={() => {
