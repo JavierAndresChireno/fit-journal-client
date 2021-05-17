@@ -1,65 +1,67 @@
-.meal-form-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin: 50px 20px;
-    color: #000000;
-    padding-top: 0;
-    padding-bottom: 50px;
-    padding: 0 15px 50px
+.meal-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 50px 20px;
+  color: #000000;
+  padding-top: 0;
+  padding-bottom: 50px;
+  padding: 0 15px 50px;
 }
 .meal-form-container h2 {
-    margin: 0;
-    padding: 10px 0;
-    color: #fca311;
-    font-size: 30px;
+  margin: 0;
+  padding: 10px 0;
+  color: #fca311;
+  font-size: 30px;
 }
 
 .meal-form-container form {
-    display: flex;
-    flex-direction: column;
-    padding: 5px ;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
 }
 
 .meal-form-container label {
-    font-size: 18px;
-    font-weight: 700;
-    color: #14213d;
+  font-size: 18px;
+  font-weight: 700;
+  color: #14213d;
 }
 .meal-form-container input {
-    margin-bottom: 15px;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 18px;
-
+  margin-bottom: 15px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px;
 }
 .meal-form-container textarea {
-    margin-bottom: 15px;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 18px;
-
+  margin-bottom: 15px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px;
 }
 
 .meal-form-container form button {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    border:none;
-    background-color: #14213d;
-    color: #eeeeee;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-right: 10px;
-    border-radius: 5%;
-    align-self: center;
-    padding: 1%;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  background-color: #14213d;
+  color: #eeeeee;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right: 10px;
+  border-radius: 5%;
+  align-self: center;
+  padding: 1%;
+}
+.meal-form-container form button:hover {
+  background-color: #203664;
+  cursor: pointer;
 }
 
-.form-buttons{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .meal-form-error {
-    color: red
+  color: red;
 }
